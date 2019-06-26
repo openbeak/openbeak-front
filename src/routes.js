@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import LandingPage from '@/components/LandingPage'
+import UserMap from '@/components/UserMap'
 
 Vue.use(Router)
 
@@ -9,8 +10,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'LandingPage',
+      component: LandingPage
+    },
+    {
+      path: '/:id',
+      component: UserMap
     }
   ]
 })

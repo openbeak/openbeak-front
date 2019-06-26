@@ -1,13 +1,26 @@
 <template>
-  <div>Hello World</div>
+  <div>
+    <div>OpenBeak</div>
+    <div>
+      <input v-model="beakId" placeholder="백준 ID를 입력해줘요.">
+    </div>
+    <div>
+      <button @click="sendID">입력</button>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
-  data () {
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      beakId: ''
+    }
+  },
+  methods: {
+    sendID() {
+      console.log(this.beakId);
     }
   }
 }
