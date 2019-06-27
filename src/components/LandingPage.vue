@@ -35,7 +35,7 @@ export default {
     typing: function(e){
         console.log(e.target.value)
         let message = e.target.value
-        this.valid = message.toLowerCase() == 'openbeak';
+        this.valid = message.toLowerCase() == 'algoreader';
     }
   }
 }
