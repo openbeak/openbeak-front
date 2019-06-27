@@ -37,7 +37,7 @@
       duration:300
     });
     var seconds = [];
-    var colors = ['#ffff66', '#fc515b', '#60efdf', '#ba03ed'];
+    var colors = ['#fff226', '#fc515b', '#60efdf', '#ba03ed'];
     for (var i = 0; i < 4; i++) {
       var second = new mojs.Shape({
         parent: first.el,
@@ -204,8 +204,8 @@ export default {
     width: 110px;
     height: 30px;
     border-radius: 39.5px;
-    border: solid 2px #ffffff;
-    background-color: #ffff66;
+    border: solid 2px #fff226;
+    background-color: #fff226;
     animation-name: appear;
     animation-duration: 2s;
   }
