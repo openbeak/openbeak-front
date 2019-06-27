@@ -33,8 +33,8 @@ export default {
       console.log(this.baekId);
     },
     typing: function(e){
-        console.log(e.target.value)
-        let message = e.target.value
+        //console.log(e.target.value)
+        let message = e.target.value;
         this.valid = message.toLowerCase() == 'algoreader';
     }
   }

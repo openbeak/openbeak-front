@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-<!--    <div>-->
-<!--      <Navbar />-->
-<!--    </div>-->
+    <div>
+      <Navbar />
+    </div>
     <div>
       <router-view/>
     </div>
@@ -10,7 +10,6 @@
 </template>
 
 <script>
-  console.log(document.getElementById('map')); //
 import Navbar from "./components/Navbar";
 
 export default {
