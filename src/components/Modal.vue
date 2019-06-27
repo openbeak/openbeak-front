@@ -9,10 +9,10 @@
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12>
-                <v-text-field label="you"  type="text" v-model="you"required></v-text-field>
+                <v-text-field label="you"  type="text" v-model="you" required></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field label="friend" type="text" v-model="friend"required></v-text-field>
+                <v-text-field label="friend" type="text" v-model="friend" required></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -20,7 +20,7 @@
         <v-card-actions id="footer">
           <v-spacer></v-spacer>
           <v-btn color="white" flat @click="modalOff" id="button">Close</v-btn>
-          <v-btn color="#1c1d20" flat @click="modalOff" id="button2">Go!</v-btn>
+          <v-btn color="#1c1d20" flat @click="getVictory" id="button2">Go!</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -31,17 +31,19 @@
 <script>
   export default {
     name: "Modal",
+    data() {
+      return {
+        you: '',
+        friend: '',
+        winner: '',
+        loser: '',
+        flag: false
+      }
+    },
     computed:{
       modalState(){
         return this.$store.getters.getShowModal;
       }
-    },
-    created() {
-        console.log("http.get method");
-        this.$http.get(`http://ec2-18-191-120-181.us-east-2.compute.amazonaws.com/api/fightProblems/${this.$store.state.user_id}/{userId2}`)
-          .then(res => {
-            console.log(res.data);
-          });
     },
     methods:{
       close(){
@@ -49,6 +51,16 @@
       },
       modalOff(){
         this.$store.commit('setModalOff');
+      },
+      getVictory(){
+        console.log("http.get method");
+        this.$http.get(`http://ec2-18-191-120-181.us-east-2.compute.amazonaws.com:8080/api/fightProblems/${this.you}/${this.friend}`)
+          .then(res => {
+            console.log(res.data);
+            this.winner = res.data["winner"]["id"];
+            this.loser = res.data["loser"]["id"];
+            flag = true;
+          });
       }
     }
   }
