@@ -44,7 +44,7 @@
   .nav {
     margin : 0 auto 0 auto;
     width : 1920px;
-    background-color: #f8f8f8;
+    background-color: #1c1d20;
     border-bottom: 1px solid #ececec;
     min-height: 50px;
     height: auto;
@@ -60,7 +60,7 @@
   }
   .nav .nav-heading > a {
     text-decoration: none;
-    color: #000;
+    color: #fff;
     line-height: 60px;
     font-weight: 400;
     font-size: 19px;
