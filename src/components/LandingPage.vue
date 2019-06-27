@@ -20,6 +20,7 @@ export default {
   },
   methods: {
     sendID() {
+      //bbb
       console.log(this.beakId);
     }
   }
