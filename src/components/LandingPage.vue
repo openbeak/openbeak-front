@@ -1,21 +1,21 @@
 <template>
   <div>
-    <div class="title">OpenBeak</div>
-    <div>
-      <input class="searchBar" @input="typing" type='text' v-model='message'><br><br>
-      <input v-model="beakId" placeholder="백준 ID를 입력해줘요." v-if="valid" class="searchBar">
-    </div>
-    <div>
+<!--    <div class="title">OpenBeak</div>-->
+    <div class="inputTap">
+      <input @input="typing" type='text' v-model='message' class="passCode"><br><br>
+      <p v-if="valid" class="idInput">아이디를 입력하세요</p>
+      <input v-model="beakId" v-if="valid" class="searchBar"><br><br>
       <button @click="sendID" id="submit" v-if="valid">입력</button>
     </div>
-    <div class="description">
-      <div id="line"></div>
-      백준 알고리즘 문제들을 태그별로 분류하여 알려줍니다.<br>
-      분류별로 알고리즘 문제를 얼마나 풀었는지, 그리고 어떤 부분이 부족한지 알 수 있습니다.
-    </div>
-    <footer>
-      <p>© 2019 서비스이름. Data based on Baekjoon Online Judge</p>
-    </footer>
+<!--    <div class="description">-->
+<!--      <div id="line"></div>-->
+<!--      백준 알고리즘 문제들을 태그별로 분류하여 알려줍니다.<br>-->
+<!--      분류별로 알고리즘 문제를 얼마나 풀었는지, 그리고 어떤 부분이 부족한지 알 수 있습니다.-->
+<!--    </div>-->
+<!--    <footer>-->
+<!--      <a href="slkdjad">flkjdslfk</a>-->
+<!--      <p>© 2019 서비스이름. Data based on Baekjoon Online Judge</p>-->
+<!--    </footer>-->
   </div>
 </template>
 
@@ -30,13 +30,11 @@ export default {
   },
   methods: {
     sendID() {
-      //bbb
       console.log(this.beakId);
     },
     typing: function(e){
         console.log(e.target.value)
         let message = e.target.value
-        let pattern = /([^가-힣\x20])/i
         this.valid = message.toLowerCase() == 'openbeak'
     }
   }
@@ -45,7 +43,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  input::placeholder{
+  input:focus{
+    outline : none;
+  }
+  .inputTap{
+    height : 200px;
+  }
+  @keyframes appear {
+    from {
+      opacity : 0;
+    }
+
+    to {
+      opacity : 1;
+    }
+  }
+  passCode::placeholder{
     /*color : #ffffff;*/
     color : black;
     font-size : 20px;
@@ -57,48 +70,73 @@ export default {
     background-color: #d8d8d8;
     margin : 240px auto 116px auto;
   }
-  .searchBar{
-    width: 600px;
-    height: 60px;
-    border-radius: 39.5px;
-    border: solid 2px #ffffff;
-    background-color: rgba(255, 255, 255, 0.35);
-    padding-left : 40px;
-    color : black;
+  .passCode{
+    width : 150px;
+    position : absolute;
+    bottom : 195px;
+    left : 90px;
+    color : white;
+    background : transparent;
+    border : none;
+    border-bottom : 1px solid white;
     font-size : 20px;
+    animation-name: bbanjjak;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+  .searchBar{
+    position : absolute;
+    bottom : 130px;
+    left : 90px;
+    color : white;
+    background : transparent;
+    border : none;
+    font-size : 20px;
+    border : none;
+    border-bottom : 1px solid white;
+    width :150px;
   }
   #submit {
-    position : relative;
-    top : -59px;
+    position : absolute;
+    top : 843px;
     left : 255px;
-    width: 120px;
-    height: 52px;
+    width: 110px;
+    height: 30px;
     border-radius: 39.5px;
     border: solid 2px #ffffff;
     background-color: #ffff66;
   }
-  #line {
-    width : 20px;
-    border : 0.5px solid white;
-    clear : both ;
-    margin : 0 auto 20px auto;
+  .idInput{
+    position : absolute;
+    color : white;
+    bottom : 140px;
+    left : 90px;
+    font-size : 20px;
+    animation-name: appear;
+    animation-duration: 2s;
   }
-  .description{
-    margin-top : 144px;
-    margin : 144px auto 0 auto;
-    width: 552px;
-    height: 48px;
-    font-family: AppleSDGothicNeo, serif;
-    font-size: 16px;
-    font-weight: 300;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.5;
-    letter-spacing: normal;
-    text-align: center;
-    color: white;
-    margin-bottom : 160px;
-  }
+  /*#line {*/
+  /*  width : 20px;*/
+  /*  border : 0.5px solid white;*/
+  /*  clear : both ;*/
+  /*  margin : 0 auto 20px auto;*/
+  /*}*/
+  /*.description{*/
+  /*  margin-top : 144px;*/
+  /*  margin : 144px auto 0 auto;*/
+  /*  width: 552px;*/
+  /*  height: 48px;*/
+  /*  font-family: AppleSDGothicNeo, serif;*/
+  /*  font-size: 16px;*/
+  /*  font-weight: 300;*/
+  /*  font-style: normal;*/
+  /*  font-stretch: normal;*/
+  /*  line-height: 1.5;*/
+  /*  letter-spacing: normal;*/
+  /*  text-align: center;*/
+  /*  color: white;*/
+  /*  margin-bottom : 160px;*/
+  /*}*/
   footer {
     margin : 0 auto 0 auto;
     width: 1920px;

@@ -20,8 +20,7 @@ export default {
 
 <style>
   html{
-    background-color : #1C1D20;
-    /*background-color : white;*/
+    background-image : url( "./assets/main-bg.png" );
   }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
