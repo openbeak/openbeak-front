@@ -3,16 +3,6 @@
     <div class="profile">
       <div class="name">
         <p>name</p>
-        <v-btn
-          color="primary"
-          dark
-          @click.stop= "modalState == true"
-          @click = "modalOn"
-          id="goGit"
-        >
-          Push to Git
-          <!--          <img src="../assets/icon-git.png">-->
-        </v-btn>
         <!--        <button id="show-modal" @click="modalOn">Show Modal</button>-->
 
       </div>
@@ -58,12 +48,19 @@
         <p class="probname">문제이름</p>
         <a href=""><img src="../assets/icon-link.png"></a>
       </div>
-      <div class="recolist">
-        <p class="category">dfs</p>
-        <p class="probnum">10000</p>
-        <p class="probname">문제이름</p>
-        <a href=""><img src="../assets/icon-link.png"></a>
-      </div>
+
+        <v-btn
+          color="primary"
+          dark
+          @click.stop= "modalState == true"
+          @click = "modalOn"
+          id="goGit"
+        >
+          Push to Git
+        </v-btn>
+
+
+
     </div>
   </div>
 </template>
@@ -87,11 +84,10 @@
 
 <style scoped>
   #goGit {
-    font-size : 18px;
-    position : relative;
-    left : 40px;
-    border-radius : 20px;
-    padding : 2px 20px 2px 20px;
+    width : 333px;
+    height : 100px;
+    font-size : 32px;
+    border-radius : 16px;
   }
   .container *{
     font-family: 'Noto Sans KR', sans-serif;
