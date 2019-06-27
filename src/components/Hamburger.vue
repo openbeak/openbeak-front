@@ -119,7 +119,7 @@
     height : 1080px;
   }
   .profile {
-    background-color : #ffff66;
+    background-color : #fff226;
     width : 100%;
     height : 230px;
     padding-bottom : 0px;
@@ -210,7 +210,7 @@
     left : 10px;
     display : inline-block;
     padding : 3px 15px 1px 15px;
-    background-color : #ffff66;
+    background-color : #fff226;
     border-radius : 12px;
   }
   .probnum{
