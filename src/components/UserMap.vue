@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="map">
     </div>
 </template>
 <script>
@@ -10,6 +10,7 @@
       const shape = new mojs.Shape
       array.push(
         new mojs.Shape({
+          parent:       document.getElementById('map'),
           shape:  			'circle',
           left:         (200+Math.random()*250)+'',
           top:          (300+Math.random()*250)+'',
@@ -23,6 +24,7 @@
       const shape = new mojs.Shape
       array.push(
         new mojs.Shape({
+          parent:       document.getElementById('map'),
           shape:  			'circle',
           left:         (600+Math.random()*400)+'',
           top:          (200+Math.random()*400)+'',
@@ -36,6 +38,7 @@
       const shape = new mojs.Shape
       array.push(
         new mojs.Shape({
+          parent:       document.getElementById('map'),
           shape:  			'circle',
           left:         (300+Math.random()*200)+'',
           top:          (500+Math.random()*200)+'',
@@ -44,9 +47,15 @@
         })
       );
     }
-    // array.forEach(shape => {
-    //   const shapeShow = shape.play();
-    // });
+    array.forEach(shape => {
+      const shapeShow = shape.play();
+    });
+
+    // const mouseOver = () => {
+    //   console.log(this);
+    // }
+    console.log(document.getElementById('map'));
+    // document.getElementById('map').childNodes.addEventListener("mouseover", mouseOver);
 
     export default {
         name: "UserMap",
