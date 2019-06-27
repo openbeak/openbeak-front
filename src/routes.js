@@ -14,8 +14,10 @@ export default new Router({
       component: LandingPage
     },
     {
-      path: '/:id',
-      component: UserMap
+      path: '/user',
+      name: 'UserMap',
+      component: UserMap,
+      props: true
     }
   ]
 })

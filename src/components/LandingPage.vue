@@ -11,8 +11,9 @@
 </template>
 
 <script>
+
 export default {
-  name: 'HelloWorld',
+  name: 'LandingPage',
   data() {
     return {
       beakId: ''
@@ -20,7 +21,13 @@ export default {
   },
   methods: {
     sendID() {
-      console.log(this.beakId);
+      this.$route.params.id = this.beakId;
+      console.log(this.$route.params.id);
+      this.$router.push(
+        {
+          name: 'UserMap'
+        }
+      )
     }
   }
 }

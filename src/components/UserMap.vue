@@ -1,10 +1,13 @@
 <template>
-    
+    <div>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "UserMap"
+        name: "UserMap",
+        method: {
+        }
     }
 </script>
 
