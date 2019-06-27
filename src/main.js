@@ -5,10 +5,12 @@ import App from './App'
 import router from './routes'
 import { store } from './store'
 import Vuetify from 'vuetify'
+import axios from 'axios'
 
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.config.productionTip = false
+Vue.prototype.$http = axios
 Vue.use(Vuetify)
 
 Vue.component('modal', {
@@ -18,6 +20,7 @@ Vue.component('modal', {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>',
   store
