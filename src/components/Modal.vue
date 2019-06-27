@@ -15,6 +15,12 @@
                 <v-text-field label="Password" type="password" required></v-text-field>
               </v-flex>
               <v-flex xs12>
+                <v-text-field label="BOJ ID" required></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field label="Password" type="password" required></v-text-field>
+              </v-flex>
+              <v-flex xs12>
                 <v-text-field label="Repository" type="password" required></v-text-field>
               </v-flex>
             </v-layout>

@@ -11,7 +11,9 @@
           id="goGit"
         >
           Push to Git
+          <!--          <img src="../assets/icon-git.png">-->
         </v-btn>
+        <!--        <button id="show-modal" @click="modalOn">Show Modal</button>-->
 
       </div>
       <div class="problem">
@@ -49,7 +51,7 @@
       <p class="probnum">0000</p>
       <p class="probname">문제이름</p>
       <a href=""><img src="../assets/icon-link.png"></a>
-      </div>
+    </div>
       <div class="recolist">
         <p class="category">dfs</p>
         <p class="probnum">0000</p>
@@ -80,9 +82,9 @@
         this.$store.commit('setModalOn')
       }
     }
-    }
+  }
 </script>
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
 <style scoped>
   #goGit {
     font-size : 18px;
@@ -108,9 +110,9 @@
   .name{
     height : 80px;
   }
-* {
-  border: 1px solid grey;
-}
+  * {
+    border: 1px solid grey;
+  }
   .container{
     padding : 0 0 0 0;
     width : 350px;
@@ -127,6 +129,7 @@
   }
   .name{
     padding-left : 10%;
+    /*padding-right : 10%;*/
     text-align : left;
     height : 80px;
     border : none;
@@ -226,4 +229,6 @@
     text-align : left;
     padding-left : 14px;
   }
+
 </style>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
