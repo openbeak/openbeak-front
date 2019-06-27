@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  console.log('App.vue!!');
+  console.log(document.getElementById('map')); //
 import Navbar from "./components/Navbar";
 
 export default {

@@ -1,60 +1,60 @@
 <template>
   <div id="map">
-    <div id="test">
-
-    </div>
   </div>
-
 </template>
 <script>
-    console.log('UserMap!!');
+    console.log(document.getElementById('map'));
     import mojs from 'mo-js'
 
-    let array = []; // 문제들 배열
-    for(let i = 0; i < 10; i++) {
-      const shape = new mojs.Shape;
-      array.push(
-        new mojs.Shape({
-          parent:       document.querySelector('#test'),
-          shape:  			'circle',
-          left:         (200+Math.random()*250)+'',
-          top:          (300+Math.random()*250)+'',
-          fill:         "rgb(255,255,"+Math.random()*200+")",
-          radius:       Math.random()*10+15,
-        })
-      );
+    const test = () => {
+      let array = []; // 문제들 배열
+      for(let i = 0; i < 10; i++) {
+        const shape = new mojs.Shape;
+        array.push(
+          new mojs.Shape({
+            parent:       document.getElementById('map'),
+            shape:  			'circle',
+            left:         (200+Math.random()*250)+'',
+            top:          (300+Math.random()*250)+'',
+            fill:         "rgb(255,255,"+Math.random()*200+")",
+            radius:       Math.random()*10+15,
+          })
+        );
+      }
+
+      for(let i = 0; i < 10; i++) {
+        const shape = new mojs.Shape;
+        array.push(
+          new mojs.Shape({
+            parent:       document.getElementById('map'),
+            shape:  			'circle',
+            left:         (600+Math.random()*400)+'',
+            top:          (200+Math.random()*400)+'',
+            fill:         "rgb("+100+i*5+","+i*10+","+100+i*5+")",
+            radius:       Math.random()*15+10,
+          })
+        );
+      }
+
+      for(let i = 0; i < 10; i++) {
+        const shape = new mojs.Shape
+        array.push(
+          new mojs.Shape({
+            parent:       document.getElementById('map'),
+            shape:  			'circle',
+            left:         (300+Math.random()*200)+'',
+            top:          (500+Math.random()*200)+'',
+            fill:         "rgb(255,"+Math.random()*80+","+Math.random()*80+")",
+            radius:       Math.random()*15+10,
+          })
+        );
+      }
+
+      array.forEach(shape => {
+        const shapeShow = shape.play();
+      });
     }
 
-    for(let i = 0; i < 10; i++) {
-      const shape = new mojs.Shape;
-      array.push(
-        new mojs.Shape({
-          parent:       document.querySelector('#map'),
-          shape:  			'circle',
-          left:         (600+Math.random()*400)+'',
-          top:          (200+Math.random()*400)+'',
-          fill:         "rgb("+100+i*5+","+i*10+","+100+i*5+")",
-          radius:       Math.random()*15+10,
-        })
-      );
-    }
-
-    for(let i = 0; i < 10; i++) {
-      const shape = new mojs.Shape
-      array.push(
-        new mojs.Shape({
-          parent:       document.querySelector('#map'),
-          shape:  			'circle',
-          left:         (300+Math.random()*200)+'',
-          top:          (500+Math.random()*200)+'',
-          fill:         "rgb(255,"+Math.random()*80+","+Math.random()*80+")",
-          radius:       Math.random()*15+10,
-        })
-      );
-    }
-    array.forEach(shape => {
-      const shapeShow = shape.play();
-    });
 
     // const mouseOver = () => {
     //   console.log(this);
@@ -65,6 +65,9 @@
     export default {
         name: "UserMap",
         method: {
+        },
+        mounted() {
+          test();
         }
     }
 </script>
