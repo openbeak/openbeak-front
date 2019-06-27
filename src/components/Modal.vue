@@ -84,7 +84,7 @@
   #button2 {
     font-size : 24px;
     padding : 12px 98px 40px 98px;
-    background-color : #ffff66;
+    background-color : #fff226;
     border-radius : 15px;
     border : 1px solid #333333;
   }
