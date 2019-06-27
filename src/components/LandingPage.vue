@@ -55,6 +55,8 @@ export default {
     border: solid 2px #ffffff;
     background-color: rgba(255, 255, 255, 0.35);
     padding-left : 40px;
+    color : white;
+    font-size : 20px;
   }
   #submit {
     position : relative;
@@ -77,7 +79,7 @@ export default {
     margin : 144px auto 0 auto;
     width: 552px;
     height: 48px;
-    font-family: AppleSDGothicNeo;
+    font-family: AppleSDGothicNeo, serif;
     font-size: 16px;
     font-weight: 300;
     font-style: normal;
