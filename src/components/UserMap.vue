@@ -1,6 +1,6 @@
 <template>
   <div style="width : 1920px; margin-left : auto; margin-right:auto;">
-    <Hamburger class="sideBar" />
+    <Hamburger class="sideBar"/>
     <Modal/>
     <div>
       <div id="map"></div>
@@ -12,10 +12,15 @@
     import Hamburger from "./Hamburger";
     import Modal from "./Modal";
 
+    let CategoryMap = new Map();
+
     export default {
       name: "UserMap",
       mounted() {
-        bubble(infoAboutMap);
+        // CategoryMap = categorize(UserData.soling_problems);
+        // mapHandling(CategoryMap);
+        // console.log(CategoryArray);
+        // bubble(infoAboutMap, CategoryArray);
       },
       components: {Modal, Hamburger},
       created() {
@@ -24,10 +29,17 @@
           .then(res => {
             console.log(res);
             console.log(res.data);
+            UserData = res.data;
+            makeMaps(UserData.soling_problems);
+            categorize(UserData.soling_problems);
+            console.log(CategoryMap);
+            mapHandling(CategoryMap);
+            console.log(CategoryArray);
+            bubble(infoAboutMap, CategoryArray);
           })
       }
     }
-
+    let UserData = [];
     let infoAboutMap = [
       {
         ProbNum: [30,20],
@@ -100,29 +112,95 @@
         radiusVal: [5,5]
       }
     ];
+    let CategoryArray = [];
+    let KVnumName = new Map();
+    let KVnumCate = new Map();
+    let KVnumRate = new Map();
     const opacity = [1,0.6,0.3];
-    let bubble = (arr) => {
+
+    const categorize = (arr) => {
+      for(let i = 0; i < arr.length; i++) {
+        const category = arr[i]['category'];
+        if(CategoryMap.has(category)) {
+            let tmp = CategoryMap.get(category);
+            tmp++;
+            CategoryMap.set(category, tmp);
+        } else {
+              CategoryMap.set(category, 1);
+        }
+      }
+    }
+
+    const mapHandling = (map) => {
+      for(let i = 0; i < map.size; i++) {
+          let max = 0;
+          let maxKey = '';
+        for(let [key, value] of map) {
+          if(value >= max) {
+            max = value;
+            maxKey = key;
+          }
+        }
+        CategoryArray.push({
+          'category': maxKey,
+          'num': max
+        });
+        console.log(CategoryArray);
+        map.delete(maxKey);
+        if(CategoryArray.length === 9 && map.length > 0) {
+          let count = 0;
+          for(let [key, value] of map) {
+            count += value;
+          }
+          CategoryArray.push({
+            'category': '기타',
+            'num': count
+          });
+        }
+      }
+    }
+
+    const makeMaps = (arr) => {
+      for(let i = 0; i < arr.length; i++) {
+        KVnumName.set(arr[i].problemNum, arr[i].problemName);
+        KVnumCate.set(arr[i].problemNum, arr[i].category);
+        KVnumRate.set(arr[i].problemNum, arr[i].answerRate);
+      }
+    }
+
+
+    let bubble = (arr, cateArr) => {
         let array = []; // 문제들 배열
         for (let i = 0; i < arr.length; i++) {
-          for (let j = 0; j < arr[i].ProbNum[0] + Math.random() * arr[i].ProbNum[1]; j++) {
-            array.push(
-              new mojs.Shape({
-                parent: document.getElementById('map'),
-                shape: 'circle',
-                left: (arr[i].left[0] + Math.random() * arr[i].left[1]) + '',
-                top: (arr[i].top[0] + Math.random() * arr[i].top[1]) + '',
-                fill: "rgba(" + arr[i].rgbaVal[0] + "," + arr[i].rgbaVal[1] + "," + arr[i].rgbaVal[2] + "," + opacity[Math.floor(Math.random() * 3)] + ")",
-                radius: Math.random() * arr[i].radiusVal[1] + arr[i].radiusVal[0],
-              })
-            );
+          for (let j = 0; j < cateArr[i].num; j++) {
+            for(let [key, value] of KVnumCate) {
+              if(value === cateArr[i].category) {
+                const shape = new mojs.Shape({
+                    parent: document.getElementById('map'),
+                    shape: 'circle',
+                    left: (arr[i].left[0] + Math.random() * arr[i].left[1]) + '',
+                    top: (arr[i].top[0] + Math.random() * arr[i].top[1]) + '',
+                    fill: "rgba(" + arr[i].rgbaVal[0] + "," + arr[i].rgbaVal[1] + "," + arr[i].rgbaVal[2] + "," + opacity[Math.floor(Math.random() * 3)] + ")",
+                    radius: Math.random() * arr[i].radiusVal[1] + arr[i].radiusVal[0],
+                  });
+                const problem = {
+                    'num': key,
+                    'name': KVnumName.get(key),
+                    'category': cateArr.category,
+                    'rate': KVnumRate.get(key)
+                  };
+                const Obj = {
+                  shape, problem
+                };
+                array.push(Obj);
+              }
+            }
           }
         }
 
 
         console.log(array);
-        array.forEach(shape => {
-          const shapeShow = shape.play();
-        });
+        array.forEach(obj => obj.shape.play());
 
         const elList = document.querySelectorAll('#map div');
         console.log(elList);
@@ -174,7 +252,7 @@
   #map {
     background-color: #1c1d20;
     width: 100vw;
-    height: 87vh;
+    height: 1080px;
   }
 
   .sideBar {
