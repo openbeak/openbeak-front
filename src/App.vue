@@ -20,7 +20,10 @@ export default {
 
 <style>
   html{
+    background-color : black;
     background-image : url( "./assets/main-bg.png" );
+    background-repeat : no-repeat;
+    background-position : center top;
   }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

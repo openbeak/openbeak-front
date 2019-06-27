@@ -72,9 +72,9 @@ export default {
   }
   .passCode{
     width : 150px;
-    position : absolute;
-    bottom : 195px;
-    left : 90px;
+    position : relative;
+    top : 710px;
+    right : 795px;
     color : white;
     background : transparent;
     border : none;
@@ -85,9 +85,9 @@ export default {
     animation-iteration-count: infinite;
   }
   .searchBar{
-    position : absolute;
-    bottom : 130px;
-    left : 90px;
+    position : relative;
+    top : 660px;
+    right : 795px;
     color : white;
     background : transparent;
     border : none;
@@ -95,25 +95,28 @@ export default {
     border : none;
     border-bottom : 1px solid white;
     width :150px;
+    animation-name: appear;
+    animation-duration: 2s;
   }
   #submit {
-    position : absolute;
-    top : 843px;
-    left : 255px;
+    position : relative;
+    top : 612px;
+    right : 650px;
     width: 110px;
     height: 30px;
     border-radius: 39.5px;
     border: solid 2px #ffffff;
     background-color: #ffff66;
-  }
-  .idInput{
-    position : absolute;
-    color : white;
-    bottom : 140px;
-    left : 90px;
-    font-size : 20px;
     animation-name: appear;
     animation-duration: 2s;
+  }
+  .idInput{
+    position : relative;
+    color : white;
+    top : 680px;
+    right : 790px;
+    font-size : 20px;
+
   }
   /*#line {*/
   /*  width : 20px;*/
