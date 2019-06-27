@@ -92,16 +92,6 @@ export default {
         //console.log(e.target.value)
         let message = e.target.value;
         this.valid = message.toLowerCase() == 'algoreader';
-        // element.dispatchEvent(new KeyboardEvent('keypress',{'key':'Tab'}));
-        // KeyEvent.simulate(0, 9);
-        // KeyboardEvent.simulate(0, 9);
-        // jQuery.event.trigger({type:'keydown', which:9});
-
-        // document.addEventListener('keydown', function(event){
-          // console.log(event.which);
-        // });
-        // var evt = new KeyboardEvent('keydown', {'keyCode':9, 'which':9});
-        // document.dispatchEvent(evt);
     }
   }
 }
