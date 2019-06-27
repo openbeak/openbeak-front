@@ -237,23 +237,6 @@ export default {
     height: 56px;
     background-color: #2a2b2e;
   }
-  footer p {
-    margin-left : auto;
-    margin-right : auto;
-    padding-top : 16px;
-    padding-bottom : 16px;
-    /*width: 333px;*/
-    /*height: 24px;*/
-    font-family: AppleSDGothicNeo;
-    font-size: 14px;
-    font-weight: 300;
-    font-style: normal;
-    font-stretch: normal;
-    /*line-height: 1.71;*/
-    /*letter-spacing: normal;*/
-    text-align: center;
-    color: #adadad;
-  }
 h1, h2 {
   font-weight: normal;
 }

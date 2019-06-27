@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="sideBar"></div>
+    <Hamburger class="sideBar" />
+    <Modal/>
     <div>
       <div id="map"></div>
     </div>
@@ -9,6 +10,7 @@
 <script>
     import mojs from 'mo-js'
     import Hamburger from "./Hamburger";
+    import Modal from "./Modal";
 
     const test = () => {
       let array = []; // 문제들 배열
@@ -80,7 +82,7 @@
 
     export default {
         name: "UserMap",
-        components: {Hamburger},
+        components: {Modal, Hamburger},
         created(){
           console.log("http.get method");
           this.$http.get(`http://ec2-18-191-120-181.us-east-2.compute.amazonaws.com:8080/api/solvedProblems/list/${this.$store.state.user_id}`)
@@ -90,7 +92,6 @@
           })
         },
         method: {
-          
         },
         mounted() {
           test();
@@ -103,7 +104,7 @@
     border: 1px solid red;
   }
   .sideBar {
-    width: 180px;
+    width: 350px;
     height: 87vh;
     background: gray;
     float: right;
