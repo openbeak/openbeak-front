@@ -42,6 +42,8 @@
 
   /* Start navbar */
   .nav {
+    margin : 0 auto 0 auto;
+    width : 1920px;
     background-color: #f8f8f8;
     border-bottom: 1px solid #ececec;
     min-height: 50px;
