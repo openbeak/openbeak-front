@@ -4,14 +4,9 @@
       <div class="container">
         <div class="nav-heading">
           <button class="toggle-nav" data-toggle="open-navbar1"></button>
-          <img src="../assets/logo-nevi.png" style="margin-left : 10px">
+          <img src="../assets/logo-nevi.png" style="margin-left : 24px ;width : 80% ; height : 80%; padding-top : 8px;">
         </div>
         <div class="menu" id="open-navbar1">
-<!--          <ul class="list">-->
-<!--            <li><a href="#">AAA</a></li>-->
-<!--            <li><a href="#">BBB</a></li>-->
-<!--            <li><a href="#">CCC</a></li>-->
-<!--          </ul>-->
         </div>
       </div>
     </nav>
