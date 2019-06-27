@@ -1,6 +1,7 @@
 <template>
   <div>
     <Hamburger class="sideBar" />
+    <Modal/>
     <div>
       <div id="map"></div>
     </div>
@@ -9,6 +10,7 @@
 <script>
     import mojs from 'mo-js'
     import Hamburger from "./Hamburger";
+    import Modal from "./Modal";
 
     const test = () => {
       let array = []; // 문제들 배열
@@ -80,7 +82,7 @@
 
     export default {
         name: "UserMap",
-      components: {Hamburger},
+      components: {Modal, Hamburger},
       method: {
         },
         mounted() {

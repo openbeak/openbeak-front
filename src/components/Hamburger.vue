@@ -3,7 +3,18 @@
     <div class="profile">
       <div class="name">
         <p>name</p>
-        <img src="../assets/icon-git.png">
+        <v-btn
+          color="primary"
+          dark
+          @click.stop= "modalState == true"
+          @click = "modalOn"
+          id="goGit"
+        >
+          Push to Git
+<!--          <img src="../assets/icon-git.png">-->
+        </v-btn>
+<!--        <button id="show-modal" @click="modalOn">Show Modal</button>-->
+
       </div>
       <div class="problem">
         <div class="line">
@@ -13,7 +24,7 @@
       </div>
       <div class="ranking">
         <p class="subranking">랭킹</p>
-        <p id="rangkingnumber">00위</p>
+        <p id="rankingnumber">00위</p>
       </div>
     </div>
     <div class="recommend">
@@ -58,35 +69,63 @@
 </template>
 
 <script>
-    export default {
-        name: "Hamburger"
+  export default {
+    name: "Hamburger",
+    computed:{
+      modalState(){
+        return this.$store.getters.getShowModal;
+      }
+    },
+    methods:{
+      modalOn(){
+        console.log('setmodal!')
+        this.$store.commit('setModalOn')
+      }
+    }
     }
 </script>
 
 <style scoped>
+  #goGit {
+    font-size : 18px;
+    position : relative;
+    left : 40px;
+    border-radius : 20px;
+    padding : 2px 20px 2px 20px;
+  }
   .container *{
     font-family : AppleSDGothicNeo-Bold, serif;
   }
   .name p {
+    padding-top : 25px;
     border : none;
     font-size : 32px;
+    display : inline-block;
   }
   .name img{
     position : relative;
     top : -85px;
     left : 200px;
   }
+  .name{
+    height : 80px;
+  }
 * {
   border: 1px solid grey;
 }
   .container{
+    padding : 0 0 0 0;
     width : 350px;
     height : 1080px;
   }
   .profile {
     background-color : #ffff66;
     width : 100%;
-    height : 270px;
+    height : 230px;
+    padding-bottom : 0px;
+  }
+  .profile *{
+    font-size : 24px;
   }
   .name{
     padding-left : 10%;
@@ -97,10 +136,9 @@
   }
   .line{
     margin : 0 auto 0 auto;
-    width : 80%;
-
-     : 100%;
     border : none;
+    width : 80%;
+    padding-top : 20px;
     border-top : 1px solid black;
     border-bottom : 1px solid black;
     text-align : left;
@@ -120,6 +158,7 @@
     float : right;
   }
   .ranking{
+    padding-top : 20px;
     padding-left : 10%;
     height : 75px;
     border : none;
@@ -130,12 +169,12 @@
     font-size : 24px;
     border : none;
   }
-  .ranking #rangkingnumber {
+  .ranking #rankingnumber {
     float : right;
     font-size : 24px;
     border : none;
     position : relative;
-    left : 90px;
+    right : 50px;
   }
   .recommend{
     height : 800px;
@@ -146,8 +185,8 @@
     color : white;
     border : none;
     text-align : left;
-    padding-left : 30px;
     letter-spacing: 3px;
+    padding : 15px 0 10px 20px;
   }
   .recolist {
     border-radius: 16px;
@@ -158,8 +197,8 @@
   .recolist img{
     border : none;
     position : relative;
-    bottom : 80px;
-    left : 120px;
+    bottom : 57px;
+    left : 270px;
   }
   .recolist .category {
     position : relative;
