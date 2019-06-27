@@ -4,7 +4,7 @@
       <div class="container">
         <div class="nav-heading">
           <button class="toggle-nav" data-toggle="open-navbar1"></button>
-          <a class="brand">&nbsp;&nbsp;&nbsp;OpenBeak</a>
+          <img src="../assets/logo-nevi.png" style="margin-left : 24px ;width : 80% ; height : 80%; padding-top : 8px;">
         </div>
         <div class="menu" id="open-navbar1">
 <!--          <ul class="list">-->

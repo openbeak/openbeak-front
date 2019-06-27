@@ -9,6 +9,8 @@
 <script>
     import mojs from 'mo-js'
     import Hamburger from "./Hamburger";
+    import Modal from "./Modal";
+
     let infoAboutMap = [
       {
         ProbNum: [30,20],
@@ -157,6 +159,21 @@
       mounted() {
         bubble(infoAboutMap);
       }
+        name: "UserMap",
+        components: {Modal, Hamburger},
+        created(){
+          console.log("http.get method");
+          this.$http.get(`http://ec2-18-191-120-181.us-east-2.compute.amazonaws.com:8080/api/solvedProblems/list/${this.$store.state.user_id}`)
+          .then(res => {
+            console.log(res);
+            console.log(res.data);
+          })
+        },
+        method: {
+        },
+        mounted() {
+          test();
+        }
     }
 </script>
 
@@ -168,7 +185,7 @@
   }
 
   .sideBar {
-    width: 180px;
+    width: 350px;
     height: 87vh;
     background: gray;
     float: right;
