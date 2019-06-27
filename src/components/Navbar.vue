@@ -4,14 +4,14 @@
       <div class="container">
         <div class="nav-heading">
           <button class="toggle-nav" data-toggle="open-navbar1"></button>
-          <a class="brand">OpenBeak</a>
+          <a class="brand">&nbsp;&nbsp;&nbsp;OpenBeak</a>
         </div>
         <div class="menu" id="open-navbar1">
-          <ul class="list">
-            <li><a href="#">AAA</a></li>
-            <li><a href="#">BBB</a></li>
-            <li><a href="#">CCC</a></li>
-          </ul>
+<!--          <ul class="list">-->
+<!--            <li><a href="#">AAA</a></li>-->
+<!--            <li><a href="#">BBB</a></li>-->
+<!--            <li><a href="#">CCC</a></li>-->
+<!--          </ul>-->
         </div>
       </div>
     </nav>
@@ -42,6 +42,8 @@
 
   /* Start navbar */
   .nav {
+    margin : 0 auto 0 auto;
+    width : 1920px;
     background-color: #f8f8f8;
     border-bottom: 1px solid #ececec;
     min-height: 50px;

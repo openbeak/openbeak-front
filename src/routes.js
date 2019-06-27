@@ -1,4 +1,4 @@
-import Vue from 'vue'
+  import Vue from 'vue'
 import Router from 'vue-router'
 import LandingPage from '@/components/LandingPage'
 import UserMap from '@/components/UserMap'

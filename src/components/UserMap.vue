@@ -44,9 +44,9 @@
         })
       );
     }
-    array.forEach(shape => {
-      const shapeShow = shape.play();
-    });
+    // array.forEach(shape => {
+    //   const shapeShow = shape.play();
+    // });
 
     export default {
         name: "UserMap",
