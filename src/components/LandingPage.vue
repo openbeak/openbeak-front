@@ -24,6 +24,7 @@ export default {
   methods: {
     sendID() {
       this.$route.params.id = this.baekId;
+      this.$store.state.user_id = this.baekId;
       console.log(this.$route.params.id);
       this.$router.push(
         {
