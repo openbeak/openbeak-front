@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div style="width : 1920px; margin-left : auto; margin-right:auto;">
     <Hamburger class="sideBar" />
+    <Modal/>
     <div>
       <div id="map"></div>
     </div>
@@ -85,6 +86,8 @@
     ];
     const opacity = [1,0.6,0.3];
     let bubble = (arr) => {
+
+    const test = () => {
       let array = []; // 문제들 배열
       for(let i = 0; i < arr.length; i++) {
         for(let j = 0; j < arr[i].ProbNum[0]+Math.random()*arr[i].ProbNum[1]; j++) {

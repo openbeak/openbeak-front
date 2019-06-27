@@ -7,11 +7,6 @@
           <img src="../assets/logo-nevi.png" style="margin-left : 24px ;width : 80% ; height : 80%; padding-top : 8px;">
         </div>
         <div class="menu" id="open-navbar1">
-<!--          <ul class="list">-->
-<!--            <li><a href="#">AAA</a></li>-->
-<!--            <li><a href="#">BBB</a></li>-->
-<!--            <li><a href="#">CCC</a></li>-->
-<!--          </ul>-->
         </div>
       </div>
     </nav>
@@ -44,7 +39,7 @@
   .nav {
     margin : 0 auto 0 auto;
     width : 1920px;
-    background-color: #1c1d20;
+    background-color: #000000;
     border-bottom: 1px solid #ececec;
     min-height: 50px;
     height: auto;
@@ -60,7 +55,7 @@
   }
   .nav .nav-heading > a {
     text-decoration: none;
-    color: #fff;
+    color: #000;
     line-height: 60px;
     font-weight: 400;
     font-size: 19px;
