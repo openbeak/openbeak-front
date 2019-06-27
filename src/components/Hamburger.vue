@@ -33,36 +33,36 @@
         <p class="category">dfs</p>
         <p class="probnum">0000</p>
         <p class="probname">문제이름</p>
-        <img src="../assets/icon-link.png">
+        <a href=""><img src="../assets/icon-link.png"></a>
       </div>
       <div class="recolist">
         <p class="category">dfs</p>
         <p class="probnum">0000</p>
         <p class="probname">문제이름</p>
-        <img src="../assets/icon-link.png">
+        <a href=""><img src="../assets/icon-link.png"></a>
       </div>
       <div class="recolist">
         <p class="category">dfs</p>
         <p class="probnum">0000</p>
         <p class="probname">문제이름</p>
-        <img src="../assets/icon-link.png">
+        <a href=""><img src="../assets/icon-link.png"></a>
       </div><div class="recolist">
       <p class="category">dfs</p>
       <p class="probnum">0000</p>
       <p class="probname">문제이름</p>
-      <img src="../assets/icon-link.png">
+      <a href=""><img src="../assets/icon-link.png"></a>
       </div>
       <div class="recolist">
         <p class="category">dfs</p>
         <p class="probnum">0000</p>
         <p class="probname">문제이름</p>
-        <img src="../assets/icon-link.png">
+        <a href=""><img src="../assets/icon-link.png"></a>
       </div>
       <div class="recolist">
         <p class="category">dfs</p>
-        <p class="probnum">0000</p>
+        <p class="probnum">10000</p>
         <p class="probname">문제이름</p>
-        <img src="../assets/icon-link.png">
+        <a href=""><img src="../assets/icon-link.png"></a>
       </div>
     </div>
   </div>
@@ -200,28 +200,34 @@
     bottom : 57px;
     left : 270px;
   }
+  .recolist a{
+    border : none;
+  }
   .recolist .category {
+    color : black;
     position : relative;
-    right : 100px;
+    top : 10px;
+    left : 10px;
     display : inline-block;
     padding : 1px 15px 1px 15px;
     background-color : #ffff66;
     border-radius : 12px;
   }
   .probnum{
+    color : black;
     position : relative;
-    right : 100px;
-    padding-left : 10px;
+    top : 10px;
+    padding-left : 13px;
     display : inline-block;
     border : none;
     claer : both;
   }
   .probname{
-    margin-top : 0px;
+    margin-top : 8px;
     border : none;
     font-size : 24px;
     text-align : left;
-    padding-left : 10px;
+    padding-left : 14px;
   }
   @import url("https://www.findmyfont.com/fonts/font-preview?fset=Mac-OS-Fonts&ffam=&fid=e69f76c16ba46d8e1f5b09296e8a24bb&width=800&fsize=48&text=The%20quick%20brown%20fox%20jumps%20over%20the%20lazy%20dog&wrap=2?family=AppleSDGothicNeo-Bold");
 </style>

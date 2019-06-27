@@ -1,7 +1,7 @@
 <template>
   <div id="background">
-    <p id="title">Algoreader</p>
-    <p id="description">그만큼 풀어서 리더가 될 수 있겠어?</p>
+<!--    <p id="title">Algoreader</p>-->
+<!--    <p id="description">그만큼 풀어서 리더가 될 수 있겠어?</p>-->
     <div class="inputTap">
       <input @input="typing" type='text' v-model='message' class="passCode"><br><br>
       <p v-if="valid" class="idInput">[OPENHACK@openBeak~] $</p>
@@ -100,33 +100,34 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #description{
-    margin : 10px auto 0 auto;
-    width: 500px;
-    height: 29px;
-    font-family: AppleSDGothicNeo, serif;
-    font-size: 24px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #ffffff;
-  }
-  #title{
-    margin : 0px auto 0 auto;
-    padding-top : 125px;
-    width: 295px;
-    height: 72px;
-    font-family: AppleSDGothicNeo, serif;
-    font-size: 60px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #ffffff;
-  }
+  /*#description{*/
+  /*  margin : 100px auto 0 auto;*/
+  /*  padding-left : 50px;*/
+  /*  width: 500px;*/
+  /*  height: 29px;*/
+  /*  font-family: AppleSDGothicNeo, serif;*/
+  /*  font-size: 24px;*/
+  /*  font-weight: bold;*/
+  /*  font-style: normal;*/
+  /*  font-stretch: normal;*/
+  /*  line-height: normal;*/
+  /*  letter-spacing: normal;*/
+  /*  color: #ffffff;*/
+  /*}*/
+  /*#title{*/
+  /*  margin : 0px auto 0 auto;*/
+  /*  padding-top : 125px;*/
+  /*  width: 295px;*/
+  /*  height: 72px;*/
+  /*  font-family: AppleSDGothicNeo, serif;*/
+  /*  font-size: 60px;*/
+  /*  font-weight: bold;*/
+  /*  font-style: normal;*/
+  /*  font-stretch: normal;*/
+  /*  line-height: normal;*/
+  /*  letter-spacing: normal;*/
+  /*  color: #ffffff;*/
+  /*}*/
   #background {
     width : 1920px;
     height : 1080px;
@@ -164,8 +165,8 @@ export default {
   .passCode{
     width : 150px;
     position : relative;
-    top : 200px;
-    left : 95px;
+    top : 400px;
+    left : 980px;
     color : #4AF626;
     background : transparent;
     border : none;
@@ -177,8 +178,8 @@ export default {
   }
   .searchBar{
     position : relative;
-    top : 153px;
-    left : 95px;
+    top : 395px;
+    left : 980px;
     color : white;
     background : transparent;
     border : none;
@@ -191,8 +192,8 @@ export default {
   }
   #submit {
     position : relative;
-    top : 100px;
-    left : 230px;
+    top : 350px;
+    left : 1140px;
     width: 110px;
     height: 30px;
     border-radius: 39.5px;
@@ -204,10 +205,9 @@ export default {
   .idInput{
     position : relative;
     color : #4AF626;
-    top : 170px;
-    left : 100px;
+    top : 395px;
+    left : 980px;
     font-size : 20px;
-
   }
   /*#line {*/
   /*  width : 20px;*/

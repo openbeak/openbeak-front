@@ -4,7 +4,7 @@
       <div class="container">
         <div class="nav-heading">
           <button class="toggle-nav" data-toggle="open-navbar1"></button>
-          <a class="brand">&nbsp;&nbsp;&nbsp;OpenBeak</a>
+          <img src="../assets/logo-nevi.png" style="margin-left : 10px">
         </div>
         <div class="menu" id="open-navbar1">
 <!--          <ul class="list">-->
@@ -44,7 +44,7 @@
   .nav {
     margin : 0 auto 0 auto;
     width : 1920px;
-    background-color: #f8f8f8;
+    background-color: #000000;
     border-bottom: 1px solid #ececec;
     min-height: 50px;
     height: auto;
