@@ -12,6 +12,22 @@
     import Hamburger from "./Hamburger";
     import Modal from "./Modal";
 
+    export default {
+      name: "UserMap",
+      mounted() {
+        bubble(infoAboutMap);
+      },
+      components: {Modal, Hamburger},
+      created() {
+        console.log("http.get method");
+        this.$http.get(`http://ec2-18-191-120-181.us-east-2.compute.amazonaws.com:8080/api/solvedProblems/list/${this.$store.state.user_id}`)
+          .then(res => {
+            console.log(res);
+            console.log(res.data);
+          })
+      }
+    }
+
     let infoAboutMap = [
       {
         ProbNum: [30,20],
@@ -86,39 +102,35 @@
     ];
     const opacity = [1,0.6,0.3];
     let bubble = (arr) => {
-
-    const test = () => {
-      let array = []; // 문제들 배열
-      for(let i = 0; i < arr.length; i++) {
-        for(let j = 0; j < arr[i].ProbNum[0]+Math.random()*arr[i].ProbNum[1]; j++) {
-          array.push(
-            new mojs.Shape({
-              parent:       document.getElementById('map'),
-              shape:  			'circle',
-              left:         (arr[i].left[0]+Math.random()*arr[i].left[1])+'',
-              top:          (arr[i].top[0]+Math.random()*arr[i].top[1])+'',
-              fill:         "rgba("+arr[i].rgbaVal[0]+","+arr[i].rgbaVal[1]+","+arr[i].rgbaVal[2]+","+opacity[Math.floor(Math.random()*3)]+")",
-              radius:       Math.random()*arr[i].radiusVal[1]+arr[i].radiusVal[0],
-            })
-          );
+        let array = []; // 문제들 배열
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr[i].ProbNum[0] + Math.random() * arr[i].ProbNum[1]; j++) {
+            array.push(
+              new mojs.Shape({
+                parent: document.getElementById('map'),
+                shape: 'circle',
+                left: (arr[i].left[0] + Math.random() * arr[i].left[1]) + '',
+                top: (arr[i].top[0] + Math.random() * arr[i].top[1]) + '',
+                fill: "rgba(" + arr[i].rgbaVal[0] + "," + arr[i].rgbaVal[1] + "," + arr[i].rgbaVal[2] + "," + opacity[Math.floor(Math.random() * 3)] + ")",
+                radius: Math.random() * arr[i].radiusVal[1] + arr[i].radiusVal[0],
+              })
+            );
+          }
         }
-      }
 
 
-      console.log(array);
-      array.forEach(shape => {
-        const shapeShow = shape.play();
-      });
+        console.log(array);
+        array.forEach(shape => {
+          const shapeShow = shape.play();
+        });
 
-      const elList = document.querySelectorAll('#map div');
-      console.log(elList);
-      let index = -1; // 현재 확대되어 있는 문제 index
-      let mutex = -1; // 바로 직전 확대된 문제 index
-      let mutexR = 0;
-      let tmp2 = 0;
-      let tmp3 = 0;
-      for(const item of elList) {
-          item.addEventListener("mouseover",function(e) {
+        const elList = document.querySelectorAll('#map div');
+        console.log(elList);
+        let index = -1; // 현재 확대되어 있는 문제 index
+        let mutex = -1; // 바로 직전 확대된 문제 index
+        let mutexR = 0;
+        for (const item of elList) {
+          item.addEventListener("mouseover", function (e) {
             const event = e || window.event;
             const target = event.target || event.srcElement;
             index = indexLst(item); // 인덱스 변경
@@ -134,7 +146,7 @@
             }
             mutex = index;
             let tmp = item.style.width;
-            mutexR = tmp.substring(0, tmp.length-2) / 2.0;
+            mutexR = tmp.substring(0, tmp.length - 2) / 2.0;
             array[index].then({
               radius: 50
             });
@@ -143,40 +155,18 @@
             target.setAttribute('ry', 50);
 
           });
-      }
-    }
-    function indexLst(el) {
-      var children = el.parentNode.childNodes,
-        i = 0;
-      for (; i < children.length; i++) {
-        if (children[i] == el) {
-          return i;
         }
       }
-      return -1;
-    }
 
-    export default {
-      name: "UserMap",
-      components: {Hamburger},
-      mounted() {
-        bubble(infoAboutMap);
-      }
-        name: "UserMap",
-        components: {Modal, Hamburger},
-        created(){
-          console.log("http.get method");
-          this.$http.get(`http://ec2-18-191-120-181.us-east-2.compute.amazonaws.com:8080/api/solvedProblems/list/${this.$store.state.user_id}`)
-          .then(res => {
-            console.log(res);
-            console.log(res.data);
-          })
-        },
-        method: {
-        },
-        mounted() {
-          test();
+      function indexLst(el) {
+        var children = el.parentNode.childNodes,
+          i = 0;
+        for (; i < children.length; i++) {
+          if (children[i] == el) {
+            return i;
+          }
         }
+        return -1;
     }
 </script>
 
