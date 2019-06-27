@@ -100,168 +100,56 @@
       }
 
 
-      // for(let i = 0; i < 15+Math.random()*10; i++) {
-      //   const shape = new mojs.Shape;
-      //   array.push(
-      //     new mojs.Shape({
-      //       parent:       document.getElementById('map'),
-      //       shape:  			'circle',
-      //       left:         (750+Math.random()*250)+'',
-      //       top:          (400+Math.random()*250)+'',
-      //       fill:         "rgba(252,81,91,"+Math.random()+")",
-      //       radius:       Math.random()*15+20,
-      //     })
-      //   );
-      // }
-      //
-      // for(let i = 0; i < 15+Math.random()*10; i++) {
-      //   const shape = new mojs.Shape;
-      //   array.push(
-      //     new mojs.Shape({
-      //       parent:       document.getElementById('map'),
-      //       shape:  			'circle',
-      //       left:         (600+Math.random()*250)+'',
-      //       top:          (150+Math.random()*250)+'',
-      //       fill:         "rgba(96,239,223,"+Math.random()+")",
-      //       radius:       Math.random()*15+20,
-      //     })
-      //   );
-      // }
-      //
-      // for(let i = 0; i < 7+Math.random()*6; i++) {
-      //   const shape = new mojs.Shape
-      //   array.push(
-      //     new mojs.Shape({
-      //       parent:       document.getElementById('map'),
-      //       shape:  			'circle',
-      //       left:         (800+Math.random()*150)+'',
-      //       top:          (200+Math.random()*150)+'',
-      //       fill:         "rgba(186,3,237,"+Math.random()+")",
-      //       radius:       Math.random()*10+15,
-      //     })
-      //   );
-      // }
-      //
-      // for(let i = 0; i < 7+Math.random()*6; i++) {
-      //   const shape = new mojs.Shape
-      //   array.push(
-      //     new mojs.Shape({
-      //       parent:       document.getElementById('map'),
-      //       shape:  			'circle',
-      //       left:         (100+Math.random()*150)+'',
-      //       top:          (400+Math.random()*150)+'',
-      //       fill:         "rgba(255,120,189,"+Math.random()+")",
-      //       radius:       Math.random()*10+15,
-      //     })
-      //   );
-      // }
-      //
-      // for(let i = 0; i < 7+Math.random()*6; i++) {
-      //   const shape = new mojs.Shape
-      //   array.push(
-      //     new mojs.Shape({
-      //       parent:       document.getElementById('map'),
-      //       shape:  			'circle',
-      //       left:         (600+Math.random()*150)+'',
-      //       top:          (450+Math.random()*150)+'',
-      //       fill:         "rgba(132,45,255,"+Math.random()+")",
-      //       radius:       Math.random()*10+15,
-      //     })
-      //   );
-      // }
-      //
-      // for(let i = 0; i < 3+Math.random()*4; i++) {
-      //   const shape = new mojs.Shape
-      //   array.push(
-      //     new mojs.Shape({
-      //       parent:       document.getElementById('map'),
-      //       shape:  			'circle',
-      //       left:         (200+Math.random()*100)+'',
-      //       top:          (300+Math.random()*100)+'',
-      //       fill:         "rgba(250,1,139,"+Math.random()+")",
-      //       radius:       Math.random()*15+10,
-      //     })
-      //   );
-      // }
-      //
-      // for(let i = 0; i < 3+Math.random()*4; i++) {
-      //   const shape = new mojs.Shape
-      //   array.push(
-      //     new mojs.Shape({
-      //       parent:       document.getElementById('map'),
-      //       shape:  			'circle',
-      //       left:         (500+Math.random()*100)+'',
-      //       top:          (550+Math.random()*100)+'',
-      //       fill:         "rgba(255,132,12,"+Math.random()+")",
-      //       radius:       Math.random()*15+10,
-      //     })
-      //   );
-      // }
-      //
-      // for(let i = 0; i < 3+Math.random()*4; i++) {
-      //   const shape = new mojs.Shape
-      //   array.push(
-      //     new mojs.Shape({
-      //       parent:       document.getElementById('map'),
-      //       shape:  			'circle',
-      //       left:         (400+Math.random()*100)+'',
-      //       top:          (450+Math.random()*100)+'',
-      //       fill:         "rgba(255,132,12,"+Math.random()+")",
-      //       radius:       Math.random()*15+10,
-      //     })
-      //   );
-      // }
-      //
-      // for(let i = 0; i < 3+Math.random()*4; i++) {
-      //   const shape = new mojs.Shape
-      //   array.push(
-      //     new mojs.Shape({
-      //       parent:       document.getElementById('map'),
-      //       shape:  			'circle',
-      //       left:         (100+Math.random()*100)+'',
-      //       top:          (600+Math.random()*100)+'',
-      //       fill:         "rgba(0,179,255,"+Math.random()+")",
-      //       radius:       Math.random()*5+10,
-      //     })
-      //   );
-      // }
-
+      console.log(array);
       array.forEach(shape => {
         const shapeShow = shape.play();
       });
 
       const elList = document.querySelectorAll('#map div');
-      console.log('asdasd', elList);
+      console.log(elList);
+      let index = -1; // 현재 확대되어 있는 문제 index
+      let mutex = -1; // 바로 직전 확대된 문제 index
+      let mutexR = 0;
+      let tmp2 = 0;
+      let tmp3 = 0;
       for(const item of elList) {
-          item.addEventListener("mouseover",function(e){
+          item.addEventListener("mouseover",function(e) {
             const event = e || window.event;
             const target = event.target || event.srcElement;
-            let tmp = target.getAttribute('rx');
-            if(target.classList.contains("hovered")) {
-              target.classList.remove("hovered");
-              if(tmp !== null) {
-                target.setAttribute('rx', 0.5*tmp);
-                target.setAttribute('ry', 0.5*tmp);
-              }
-            } else {
-              target.classList.add("hovered");
-              if(tmp !== null) {
-                target.setAttribute('rx', 2*tmp);
-                target.setAttribute('ry', 2*tmp);
-              }
-            }
-            console.log(target);
-          })
-      }
-      //
-      // const mouseOver = (e) => {
-      //   console.log(e.target);
-      // };
-      // console.log(array);
-      //
-      // array[0].el.addEventListener("mouseover", mouseOver);
-    }
+            index = indexLst(item); // 인덱스 변경
+            if (mutex !== -1) {
 
+              console.log(mutexR);
+              array[mutex].then({
+                radius: mutexR
+              });
+
+              elList.item(mutex).childNodes[0].childNodes[0].setAttribute('rx', mutexR);
+              elList.item(mutex).childNodes[0].childNodes[0].setAttribute('ry', mutexR);
+            }
+            mutex = index;
+            let tmp = item.style.width;
+            mutexR = tmp.substring(0, tmp.length-2) / 2.0;
+            array[index].then({
+              radius: 50
+            });
+
+            target.setAttribute('rx', 50);
+            target.setAttribute('ry', 50);
+
+          });
+      }
+    }
+    function indexLst(el) {
+      var children = el.parentNode.childNodes,
+        i = 0;
+      for (; i < children.length; i++) {
+        if (children[i] == el) {
+          return i;
+        }
+      }
+      return -1;
+    }
 
     export default {
       name: "UserMap",
@@ -279,9 +167,6 @@
     height: 87vh;
   }
 
-  .hovered {
-    border: 1px solid red;
-  }
   .sideBar {
     width: 180px;
     height: 87vh;
