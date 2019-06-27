@@ -18,6 +18,7 @@
       <!-- <button @click="sendID" id="submit" v-if="valid">입력</button> -->
     </div>
   </div>
+  
 </template>
 
 <script>

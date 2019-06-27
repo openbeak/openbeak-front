@@ -39,6 +39,13 @@
         return this.$store.getters.getShowModal;
       }
     },
+    created() {
+        console.log("http.get method");
+        this.$http.get(`http://ec2-18-191-120-181.us-east-2.compute.amazonaws.com/api/fightProblems/${this.$store.state.user_id}/{userId2}`)
+          .then(res => {
+            console.log(res.data);
+          });
+    },
     methods:{
       close(){
         this.$emit('close');
