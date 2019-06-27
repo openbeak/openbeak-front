@@ -1,22 +1,21 @@
 <template>
   <div id="background">
-<!--    <p id="title">Algoreader</p>-->
-<!--    <p id="description">그만큼 풀어서 리더가 될 수 있겠어?</p>-->
+    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
     <div class="inputTap">
-      <input @input="typing" type='text' v-model='message' class="passCode"><br><br>
-      <p v-if="valid" class="idInput">[OPENHACK@openBeak~] $</p>
-      <input v-model="baekId" v-if="valid" class="searchBar"><br><br>
-      <button @click="sendID" id="submit" v-if="valid">입력</button>
-      <!-- <b-container fluid>
-        <b-row class="my-1">
-          <b-col sm="2">
-            <label for="input-default" class="passCode" style="border-top-width: thin;">Default:</label>
-          </b-col>
-          <b-col sm="10">
-            <b-form-input class="passCode" placeholder="Enter your name"></b-form-input>
-          </b-col>
-        </b-row>
-      </b-container> -->
+      <p class="idInput">openBaek's AlgoreaderShell</p>
+      <p class="idInput">Copyright (C) OpenBaek organization. All rights reserved.</p>
+      <p class="idInput">Wellcome!!!</p><br>
+      <p class="idInput">[OPENHACK@openBeak~] $ Please enter password.</p>
+      
+      <p class="idInput">
+        [OPENHACK@openBeak~] $
+        <input @keyup.enter="typing" type='text' v-model='message' class="passCode">
+      </p>
+      <p v-if="valid" class="idInput2">[OPENHACK@openBeak~] $ Please enter Baekjoon's ID.</p>
+      <p v-if="valid" class="idInput2">[OPENHACK@openBeak~] $ 
+        <input @keyup.enter="sendID" v-model="baekId" v-if="valid" class="searchBar">
+      </p>
+      <!-- <button @click="sendID" id="submit" v-if="valid">입력</button> -->
     </div>
   </div>
 </template>
@@ -93,6 +92,16 @@ export default {
         //console.log(e.target.value)
         let message = e.target.value;
         this.valid = message.toLowerCase() == 'algoreader';
+        // element.dispatchEvent(new KeyboardEvent('keypress',{'key':'Tab'}));
+        // KeyEvent.simulate(0, 9);
+        // KeyboardEvent.simulate(0, 9);
+        // jQuery.event.trigger({type:'keydown', which:9});
+
+        // document.addEventListener('keydown', function(event){
+          // console.log(event.which);
+        // });
+        // var evt = new KeyboardEvent('keydown', {'keyCode':9, 'which':9});
+        // document.dispatchEvent(evt);
     }
   }
 }
@@ -153,7 +162,7 @@ export default {
   passCode::placeholder{
     /*color : #git zzffffff;*/
     color : black;
-    font-size : 20px;
+    font-size : 30px;
   }
   .title {
     width: 240px;
@@ -165,27 +174,25 @@ export default {
   .passCode{
     width : 150px;
     position : relative;
-    top : 400px;
-    left : 980px;
+    top : 0px;
+    left : 0px;
     color : #4AF626;
     background : transparent;
     border : none;
-    border-bottom : 1px solid white;
-    font-size : 20px;
+    font-size : 30px;
     animation-name: bbanjjak;
     animation-duration: 1s;
     animation-iteration-count: infinite;
   }
   .searchBar{
     position : relative;
-    top : 395px;
-    left : 980px;
-    color : white;
+    top : 0px;
+    left : 0px;
+    color : #4AF626;
     background : transparent;
     border : none;
-    font-size : 20px;
+    font-size : 30px;
     border : none;
-    border-bottom : 1px solid white;
     width :150px;
     animation-name: appear;
     animation-duration: 2s;
@@ -193,7 +200,7 @@ export default {
   #submit {
     position : relative;
     top : 350px;
-    left : 1140px;
+    left : 1500px;
     width: 110px;
     height: 30px;
     border-radius: 39.5px;
@@ -203,11 +210,22 @@ export default {
     animation-duration: 2s;
   }
   .idInput{
+    font-family: 'VT323', monospace;
     position : relative;
     color : #4AF626;
     top : 395px;
     left : 980px;
-    font-size : 20px;
+    font-size : 30px;
+  }
+   .idInput2{
+     font-family: 'VT323', monospace;
+    position : relative;
+    color : #4AF626;
+    top : 395px;
+    left : 980px;
+    font-size : 30px;
+    /* animation-name: appear; */
+    /* animation-duration: 2s; */
   }
   /*#line {*/
   /*  width : 20px;*/
