@@ -98,7 +98,6 @@
         }
     }
 </script>
-
 <style scoped>
   .hovered {
     border: 1px solid red;

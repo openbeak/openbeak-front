@@ -11,9 +11,7 @@
           id="goGit"
         >
           Push to Git
-<!--          <img src="../assets/icon-git.png">-->
         </v-btn>
-<!--        <button id="show-modal" @click="modalOn">Show Modal</button>-->
 
       </div>
       <div class="problem">
@@ -84,7 +82,7 @@
     }
     }
 </script>
-
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <style scoped>
   #goGit {
     font-size : 18px;
@@ -94,7 +92,7 @@
     padding : 2px 20px 2px 20px;
   }
   .container *{
-    font-family : AppleSDGothicNeo-Bold, serif;
+    font-family: 'Noto Sans KR', sans-serif;
   }
   .name p {
     padding-top : 25px;
@@ -129,7 +127,6 @@
   }
   .name{
     padding-left : 10%;
-    /*padding-right : 10%;*/
     text-align : left;
     height : 80px;
     border : none;
@@ -229,5 +226,4 @@
     text-align : left;
     padding-left : 14px;
   }
-  @import url("https://www.findmyfont.com/fonts/font-preview?fset=Mac-OS-Fonts&ffam=&fid=e69f76c16ba46d8e1f5b09296e8a24bb&width=800&fsize=48&text=The%20quick%20brown%20fox%20jumps%20over%20the%20lazy%20dog&wrap=2?family=AppleSDGothicNeo-Bold");
 </style>

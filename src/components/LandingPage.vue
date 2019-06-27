@@ -180,7 +180,7 @@ export default {
     position : relative;
     top : 395px;
     left : 980px;
-    color : white;
+    color : #4AF626;
     background : transparent;
     border : none;
     font-size : 20px;

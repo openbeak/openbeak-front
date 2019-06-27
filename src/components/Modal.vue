@@ -66,7 +66,6 @@
     background-color : #1c1d20;
   }
   #content{
-    /*background-color : #aaaaaa;*/
     background-color: rgba( 100, 100, 100, 0.1 );
   }
   #footer{
