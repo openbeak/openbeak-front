@@ -56,7 +56,7 @@
           @click = "modalOn"
           id="goGit"
         >
-          Push to Git
+          Vs Friend
         </v-btn>
 
 

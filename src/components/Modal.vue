@@ -3,19 +3,16 @@
     <v-dialog v-model="modalState" persistent max-width="600px">
       <v-card >
         <v-card-title id="title">
-          <span class="headline">Git hub 로그인<br><small>푸쉬를 대신 해드립니다.</small></span>
+          <span class="headline">Who is the reaader?</span>
         </v-card-title>
         <v-card-text id="content">
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12>
-                <v-text-field label="Github ID" required></v-text-field>
+                <v-text-field label="you"  type="text" v-model="you"required></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field label="Password" type="password" required></v-text-field>
-              </v-flex>
-              <v-flex xs12>
-                <v-text-field label="Repository" type="password" required></v-text-field>
+                <v-text-field label="friend" type="text" v-model="friend"required></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -23,7 +20,7 @@
         <v-card-actions id="footer">
           <v-spacer></v-spacer>
           <v-btn color="white" flat @click="modalOff" id="button">Close</v-btn>
-          <v-btn color="#1c1d20" flat @click="modalOff" id="button2">Push</v-btn>
+          <v-btn color="#1c1d20" flat @click="modalOff" id="button2">Go!</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
