@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width : 1920px; margin-left : auto; margin-right:auto;">
     <Hamburger class="sideBar" />
     <Modal/>
     <div>

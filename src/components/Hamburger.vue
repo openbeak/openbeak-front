@@ -206,17 +206,17 @@
   .recolist .category {
     color : black;
     position : relative;
-    top : 10px;
+    top : 14px;
     left : 10px;
     display : inline-block;
-    padding : 1px 15px 1px 15px;
+    padding : 3px 15px 1px 15px;
     background-color : #ffff66;
     border-radius : 12px;
   }
   .probnum{
     color : black;
     position : relative;
-    top : 10px;
+    top : 14px;
     padding-left : 13px;
     display : inline-block;
     border : none;
