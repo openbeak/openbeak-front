@@ -2,7 +2,53 @@
   <div class="container">
     <div class="profile">
       <div class="name">
-        <p>{{ this.$store.state.user_id }}</p>
+        <p>name</p>
+        <!--        <button id="show-modal" @click="modalOn">Show Modal</button>-->
+
+      </div>
+      <div class="problem">
+        <div class="line">
+          <p>푼 문제 수</p>
+          <p id="probnumber">000 문제</p>
+        </div>
+      </div>
+      <div class="ranking">
+        <p class="subranking">랭킹</p>
+        <p id="rankingnumber">00위</p>
+      </div>
+    </div>
+    <div class="recommend">
+      <h1>추천 문제</h1>
+      <div class="recolist">
+        <p class="category">dfs</p>
+        <p class="probnum">0000</p>
+        <p class="probname">문제이름</p>
+        <a href=""><img src="../assets/icon-link.png"></a>
+      </div>
+      <div class="recolist">
+        <p class="category">dfs</p>
+        <p class="probnum">0000</p>
+        <p class="probname">문제이름</p>
+        <a href=""><img src="../assets/icon-link.png"></a>
+      </div>
+      <div class="recolist">
+        <p class="category">dfs</p>
+        <p class="probnum">0000</p>
+        <p class="probname">문제이름</p>
+        <a href=""><img src="../assets/icon-link.png"></a>
+      </div><div class="recolist">
+      <p class="category">dfs</p>
+      <p class="probnum">0000</p>
+      <p class="probname">문제이름</p>
+      <a href=""><img src="../assets/icon-link.png"></a>
+    </div>
+      <div class="recolist">
+        <p class="category">dfs</p>
+        <p class="probnum">0000</p>
+        <p class="probname">문제이름</p>
+        <a href=""><img src="../assets/icon-link.png"></a>
+      </div>
+
         <v-btn
           color="primary"
           dark
@@ -11,59 +57,10 @@
           id="goGit"
         >
           Push to Git
-<!--          <img src="../assets/icon-git.png">-->
         </v-btn>
-<!--        <button id="show-modal" @click="modalOn">Show Modal</button>-->
 
-      </div>
-      <div class="problem">
-        <div class="line">
-          <p>푼 문제 수</p>
-          <p id="probnumber">{{ this.$store.state.solvedNum }} 문제</p>
-        </div>
-      </div>
-      <div class="ranking">
-        <p class="subranking">랭킹</p>
-        <p id="rankingnumber">{{ this.$store.state.rank }}위</p>
-      </div>
-    </div>
-    <div class="recommend">
-      <h1>추천 문제</h1>
-      <div class="recolist">
-        <p class="category">{{ this.$store.state.problemCategory1 }}</p>
-        <p class="probnum">{{ this.$store.state.problemNum1 }}</p>
-        <p class="probname">{{ this.$store.state.problemName1 }}</p>
-        <a :href="'https://www.acmicpc.net/problem/'+this.$store.state.problemNum1"><img src="../assets/icon-link.png"></a>
-      </div>
-      <div class="recolist">
-        <p class="category">{{ this.$store.state.problemCategory2 }}</p>
-        <p class="probnum">{{ this.$store.state.problemNum2 }}</p>
-        <p class="probname">{{ this.$store.state.problemName2 }}</p>
-        <a :href="'https://www.acmicpc.net/problem/'+this.$store.state.problemNum2"><img src="../assets/icon-link.png"></a>
-      </div>
-      <div class="recolist">
-        <p class="category">{{ this.$store.state.problemCategory3 }}</p>
-        <p class="probnum">{{ this.$store.state.problemNum3 }}</p>
-        <p class="probname">{{ this.$store.state.problemName3 }}</p>
-        <a :href="'https://www.acmicpc.net/problem/'+this.$store.state.problemNum3"><img src="../assets/icon-link.png"></a>
-      </div><div class="recolist">
-      <p class="category">{{ this.$store.state.problemCategory4 }}</p>
-      <p class="probnum">{{ this.$store.state.problemNum4 }}</p>
-      <p class="probname">{{ this.$store.state.problemName4 }}</p>
-      <a :href="'https://www.acmicpc.net/problem/'+this.$store.state.problemNum4"><img src="../assets/icon-link.png"></a>
-      </div>
-      <div class="recolist">
-        <p class="category">{{ this.$store.state.problemCategory5 }}</p>
-        <p class="probnum">{{ this.$store.state.problemNum5 }}</p>
-        <p class="probname">{{ this.$store.state.problemName5 }}</p>
-        <a :href="'https://www.acmicpc.net/problem/'+this.$store.state.problemNum5"><img src="../assets/icon-link.png"></a>
-      </div>
-      <div class="recolist">
-        <p class="category">dfs</p>
-        <p class="probnum">10000</p>
-        <p class="probname">문제이름</p>
-        <a href=""><img src="../assets/icon-link.png"></a>
-      </div>
+
+
     </div>
   </div>
 </template>
@@ -82,19 +79,18 @@
         this.$store.commit('setModalOn')
       }
     }
-    }
+  }
 </script>
 
 <style scoped>
   #goGit {
-    font-size : 18px;
-    position : relative;
-    left : 40px;
-    border-radius : 20px;
-    padding : 2px 20px 2px 20px;
+    width : 333px;
+    height : 100px;
+    font-size : 32px;
+    border-radius : 16px;
   }
   .container *{
-    font-family : AppleSDGothicNeo-Bold, serif;
+    font-family: 'Noto Sans KR', sans-serif;
   }
   .name p {
     padding-top : 25px;
@@ -110,9 +106,9 @@
   .name{
     height : 80px;
   }
-* {
-  border: 1px solid grey;
-}
+  * {
+    border: 1px solid grey;
+  }
   .container{
     padding : 0 0 0 0;
     width : 350px;
@@ -229,5 +225,6 @@
     text-align : left;
     padding-left : 14px;
   }
-  @import url("https://www.findmyfont.com/fonts/font-preview?fset=Mac-OS-Fonts&ffam=&fid=e69f76c16ba46d8e1f5b09296e8a24bb&width=800&fsize=48&text=The%20quick%20brown%20fox%20jumps%20over%20the%20lazy%20dog&wrap=2?family=AppleSDGothicNeo-Bold");
+
 </style>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
