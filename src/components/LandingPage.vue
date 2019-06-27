@@ -1,17 +1,73 @@
 <template>
   <div id="background">
-    <p id="title">Algoreader</p>
-    <p id="description">그만큼 풀어서 리더가 될 수 있겠어?</p>
+<!--    <p id="title">Algoreader</p>-->
+<!--    <p id="description">그만큼 풀어서 리더가 될 수 있겠어?</p>-->
     <div class="inputTap">
       <input @input="typing" type='text' v-model='message' class="passCode"><br><br>
-      <p v-if="valid" class="idInput">아이디를 입력하세요</p>
+      <p v-if="valid" class="idInput">[OPENHACK@openBeak~] $</p>
       <input v-model="baekId" v-if="valid" class="searchBar"><br><br>
       <button @click="sendID" id="submit" v-if="valid">입력</button>
+      <!-- <b-container fluid>
+        <b-row class="my-1">
+          <b-col sm="2">
+            <label for="input-default" class="passCode" style="border-top-width: thin;">Default:</label>
+          </b-col>
+          <b-col sm="10">
+            <b-form-input class="passCode" placeholder="Enter your name"></b-form-input>
+          </b-col>
+        </b-row>
+      </b-container> -->
     </div>
   </div>
 </template>
 
 <script>
+  import mojs from 'mo-js'
+  var first = new mojs.Shape({
+      shape: 'circle',
+      radius: {
+        0: 40
+      },
+      stroke: '#00b3ff',
+      strokeWidth: {
+        20: 0
+      },
+      fill: 'none',
+      left: 0,
+      top: 0,
+      duration:300
+    });
+    var seconds = [];
+    var colors = ['#fff226', '#fc515b', '#60efdf', '#ba03ed'];
+    for (var i = 0; i < 4; i++) {
+      var second = new mojs.Shape({
+        parent: first.el,
+        shape: 'circle',
+        radius: {
+          0: 'rand(10,30)'
+        },
+        stroke: colors[i],
+        strokeWidth: {
+          10: 0
+        },
+        fill: 'none',
+        left: '50%',
+        top: '50%',
+        x:'rand(-50, 50)',
+        y:'rand(-50, 50)',
+        delay:250
+      });
+      seconds.push(second);
+    }
+    document.addEventListener('click', function (e) {
+      first.tune({
+        x: e.pageX,
+        y: e.pageY
+      }).replay();
+      for(var i=0; i<seconds.length; i++){
+        seconds[i].generate().replay();
+      }
+    })
 
 export default {
   name: 'LandingPage',
@@ -24,6 +80,7 @@ export default {
   methods: {
     sendID() {
       this.$route.params.id = this.baekId;
+      this.$store.state.user_id = this.baekId;
       console.log(this.$route.params.id);
       this.$router.push(
         {
@@ -43,33 +100,34 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #description{
-    margin : 10px auto 0 auto;
-    width: 500px;
-    height: 29px;
-    font-family: AppleSDGothicNeo, serif;
-    font-size: 24px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #ffffff;
-  }
-  #title{
-    margin : 0px auto 0 auto;
-    padding-top : 125px;
-    width: 295px;
-    height: 72px;
-    font-family: AppleSDGothicNeo, serif;
-    font-size: 60px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #ffffff;
-  }
+  /*#description{*/
+  /*  margin : 100px auto 0 auto;*/
+  /*  padding-left : 50px;*/
+  /*  width: 500px;*/
+  /*  height: 29px;*/
+  /*  font-family: AppleSDGothicNeo, serif;*/
+  /*  font-size: 24px;*/
+  /*  font-weight: bold;*/
+  /*  font-style: normal;*/
+  /*  font-stretch: normal;*/
+  /*  line-height: normal;*/
+  /*  letter-spacing: normal;*/
+  /*  color: #ffffff;*/
+  /*}*/
+  /*#title{*/
+  /*  margin : 0px auto 0 auto;*/
+  /*  padding-top : 125px;*/
+  /*  width: 295px;*/
+  /*  height: 72px;*/
+  /*  font-family: AppleSDGothicNeo, serif;*/
+  /*  font-size: 60px;*/
+  /*  font-weight: bold;*/
+  /*  font-style: normal;*/
+  /*  font-stretch: normal;*/
+  /*  line-height: normal;*/
+  /*  letter-spacing: normal;*/
+  /*  color: #ffffff;*/
+  /*}*/
   #background {
     width : 1920px;
     height : 1080px;
@@ -107,9 +165,9 @@ export default {
   .passCode{
     width : 150px;
     position : relative;
-    top : 200px;
-    left : 95px;
-    color : white;
+    top : 400px;
+    left : 980px;
+    color : #4AF626;
     background : transparent;
     border : none;
     border-bottom : 1px solid white;
@@ -120,8 +178,8 @@ export default {
   }
   .searchBar{
     position : relative;
-    top : 153px;
-    left : 95px;
+    top : 395px;
+    left : 980px;
     color : white;
     background : transparent;
     border : none;
@@ -134,23 +192,22 @@ export default {
   }
   #submit {
     position : relative;
-    top : 100px;
-    left : 230px;
+    top : 350px;
+    left : 1140px;
     width: 110px;
     height: 30px;
     border-radius: 39.5px;
-    border: solid 2px #ffffff;
-    background-color: #ffff66;
+    border: solid 2px #fff226;
+    background-color: #fff226;
     animation-name: appear;
     animation-duration: 2s;
   }
   .idInput{
     position : relative;
-    color : white;
-    top : 170px;
-    left : 100px;
+    color : #4AF626;
+    top : 395px;
+    left : 980px;
     font-size : 20px;
-
   }
   /*#line {*/
   /*  width : 20px;*/
@@ -179,23 +236,6 @@ export default {
     width: 1920px;
     height: 56px;
     background-color: #2a2b2e;
-  }
-  footer p {
-    margin-left : auto;
-    margin-right : auto;
-    padding-top : 16px;
-    padding-bottom : 16px;
-    /*width: 333px;*/
-    /*height: 24px;*/
-    font-family: AppleSDGothicNeo;
-    font-size: 14px;
-    font-weight: 300;
-    font-style: normal;
-    font-stretch: normal;
-    /*line-height: 1.71;*/
-    /*letter-spacing: normal;*/
-    text-align: center;
-    color: #adadad;
   }
 h1, h2 {
   font-weight: normal;
