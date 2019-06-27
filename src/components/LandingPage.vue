@@ -4,9 +4,19 @@
     <p id="description">그만큼 풀어서 리더가 될 수 있겠어?</p>
     <div class="inputTap">
       <input @input="typing" type='text' v-model='message' class="passCode"><br><br>
-      <p v-if="valid" class="idInput">아이디를 입력하세요</p>
+      <p v-if="valid" class="idInput">[OPENHACK@openBeak~] $</p>
       <input v-model="baekId" v-if="valid" class="searchBar"><br><br>
       <button @click="sendID" id="submit" v-if="valid">입력</button>
+      <!-- <b-container fluid>
+        <b-row class="my-1">
+          <b-col sm="2">
+            <label for="input-default" class="passCode" style="border-top-width: thin;">Default:</label>
+          </b-col>
+          <b-col sm="10">
+            <b-form-input class="passCode" placeholder="Enter your name"></b-form-input>
+          </b-col>
+        </b-row>
+      </b-container> -->
     </div>
   </div>
 </template>
@@ -156,7 +166,7 @@ export default {
     position : relative;
     top : 200px;
     left : 95px;
-    color : white;
+    color : #4AF626;
     background : transparent;
     border : none;
     border-bottom : 1px solid white;
@@ -193,7 +203,7 @@ export default {
   }
   .idInput{
     position : relative;
-    color : white;
+    color : #4AF626;
     top : 170px;
     left : 100px;
     font-size : 20px;
