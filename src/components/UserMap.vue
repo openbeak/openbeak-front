@@ -82,7 +82,7 @@
         name: "UserMap",
         components: {Hamburger},
         created(){
-          console.log(this.$store.state.user_id);
+          console.log("http.get method");
           this.$http.get(`http://ec2-18-191-120-181.us-east-2.compute.amazonaws.com:8080/api/solvedProblems/list/${this.$store.state.user_id}`)
           .then(res => {
             console.log(res);
