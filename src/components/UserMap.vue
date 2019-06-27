@@ -1,10 +1,14 @@
 <template>
-  <div id="map">
+  <div>
+    <div class="sideBar"></div>
+    <div>
+      <div id="map"></div>
+    </div>
   </div>
 </template>
 <script>
-    console.log(document.getElementById('map'));
     import mojs from 'mo-js'
+    import Hamburger from "./Hamburger";
 
     const test = () => {
       let array = []; // 문제들 배열
@@ -53,17 +57,30 @@
       array.forEach(shape => {
         const shapeShow = shape.play();
       });
+
+      const elList = document.querySelectorAll('#map div');
+      console.log('asdasd', elList);
+      for(const item of elList) {
+          item.addEventListener("mouseover",function(e){
+            const event = e || window.event;
+            const target = event.target || event.srcElement;
+            target.classList.add("hovered");
+            console.log({target})
+          })
+      }
+
+      const mouseOver = (e) => {
+        console.log(e.target);
+      };
+      console.log(array);
+
+      array[0].el.addEventListener("mouseover", mouseOver);
     }
 
 
-    // const mouseOver = () => {
-    //   console.log(this);
-    // }
-    // console.log(document.getElementById('map'));
-    // document.getElementById('map').childNodes.addEventListener("mouseover", mouseOver);
-
     export default {
         name: "UserMap",
+        components: {Hamburger},
         created(){
           console.log(this.$store.state.user_id);
           this.$http.get(`http://ec2-18-191-120-181.us-east-2.compute.amazonaws.com:8080/api/solvedProblems/list/${this.$store.state.user_id}`)
@@ -73,6 +90,7 @@
           })
         },
         method: {
+          
         },
         mounted() {
           test();
@@ -81,7 +99,13 @@
 </script>
 
 <style scoped>
-svg:hover {
-  color: black;
-}
+  .hovered {
+    border: 1px solid red;
+  }
+  .sideBar {
+    width: 180px;
+    height: 87vh;
+    background: gray;
+    float: right;
+  }
 </style>
