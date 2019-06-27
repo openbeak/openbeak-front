@@ -21,6 +21,7 @@ export default {
 <style>
   html{
     background-color : #1C1D20;
+    /*background-color : white;*/
   }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

@@ -2,10 +2,11 @@
   <div>
     <div class="title">OpenBeak</div>
     <div>
-      <input v-model="beakId" placeholder="백준 ID를 입력해줘요." class="searchBar">
+      <input class="searchBar" @input="typing" type='text' v-model='message'><br><br>
+      <input v-model="beakId" placeholder="백준 ID를 입력해줘요." v-if="valid" class="searchBar">
     </div>
     <div>
-      <button @click="sendID" id="submit">입력</button>
+      <button @click="sendID" id="submit" v-if="valid">입력</button>
     </div>
     <div class="description">
       <div id="line"></div>
@@ -23,13 +24,20 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      beakId: ''
+      beakId: '',
+      valid : false
     }
   },
   methods: {
     sendID() {
       //bbb
       console.log(this.beakId);
+    },
+    typing: function(e){
+        console.log(e.target.value)
+        let message = e.target.value
+        let pattern = /([^가-힣\x20])/i
+        this.valid = message.toLowerCase() == 'openbeak'
     }
   }
 }
@@ -38,7 +46,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   input::placeholder{
-    color : #ffffff;
+    /*color : #ffffff;*/
+    color : black;
     font-size : 20px;
   }
   .title {
@@ -55,7 +64,7 @@ export default {
     border: solid 2px #ffffff;
     background-color: rgba(255, 255, 255, 0.35);
     padding-left : 40px;
-    color : white;
+    color : black;
     font-size : 20px;
   }
   #submit {
