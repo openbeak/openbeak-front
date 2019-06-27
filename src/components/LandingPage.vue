@@ -1,9 +1,11 @@
 <template>
   <div id="background">
+    <p id="title">Algoreader</p>
+    <p id="description">그만큼 풀어서 리더가 될 수 있겠어?</p>
     <div class="inputTap">
       <input @input="typing" type='text' v-model='message' class="passCode"><br><br>
       <p v-if="valid" class="idInput">아이디를 입력하세요</p>
-      <input v-model="beakId" v-if="valid" class="searchBar"><br><br>
+      <input v-model="baekId" v-if="valid" class="searchBar"><br><br>
       <button @click="sendID" id="submit" v-if="valid">입력</button>
     </div>
   </div>
@@ -15,20 +17,20 @@ export default {
   name: 'LandingPage',
   data() {
     return {
-      beakId: '',
+      baekId: '',
       valid : false
     }
   },
   methods: {
     sendID() {
-      this.$route.params.id = this.beakId;
+      this.$route.params.id = this.baekId;
       console.log(this.$route.params.id);
       this.$router.push(
         {
           name: 'UserMap'
         }
       )
-      console.log(this.beakId);
+      console.log(this.baekId);
     },
     typing: function(e){
         console.log(e.target.value)
@@ -41,12 +43,41 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#background {
-  background-color : black;
-  background-image : url("../assets/main-bg.png" );
-  background-repeat : no-repeat;
-  background-position : center top;
-}
+  #description{
+    margin : 10px auto 0 auto;
+    width: 500px;
+    height: 29px;
+    font-family: AppleSDGothicNeo, serif;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+  }
+  #title{
+    margin : 0px auto 0 auto;
+    padding-top : 125px;
+    width: 295px;
+    height: 72px;
+    font-family: AppleSDGothicNeo, serif;
+    font-size: 60px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+  }
+  #background {
+    width : 1920px;
+    height : 1080px;
+    background-image : url("../assets/main-bg.png" );
+    background-repeat : no-repeat;
+    background-position : center;
+    background-color : black;
+  }
 
   input:focus{
     outline : none;
@@ -62,7 +93,7 @@ export default {
     }
   }
   passCode::placeholder{
-    /*color : #ffffff;*/
+    /*color : #git zzffffff;*/
     color : black;
     font-size : 20px;
   }
@@ -76,8 +107,8 @@ export default {
   .passCode{
     width : 150px;
     position : relative;
-    top : 710px;
-    right : 795px;
+    top : 200px;
+    left : 95px;
     color : white;
     background : transparent;
     border : none;
@@ -89,8 +120,8 @@ export default {
   }
   .searchBar{
     position : relative;
-    top : 660px;
-    right : 795px;
+    top : 153px;
+    left : 95px;
     color : white;
     background : transparent;
     border : none;
@@ -103,8 +134,8 @@ export default {
   }
   #submit {
     position : relative;
-    top : 612px;
-    right : 650px;
+    top : 100px;
+    left : 230px;
     width: 110px;
     height: 30px;
     border-radius: 39.5px;
@@ -116,8 +147,8 @@ export default {
   .idInput{
     position : relative;
     color : white;
-    top : 680px;
-    right : 790px;
+    top : 170px;
+    left : 100px;
     font-size : 20px;
 
   }
