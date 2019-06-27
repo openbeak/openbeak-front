@@ -10,6 +10,7 @@
 </template>
 
 <script>
+  console.log('App.vue!!');
 import Navbar from "./components/Navbar";
 
 export default {

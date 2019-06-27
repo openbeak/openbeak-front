@@ -1,16 +1,21 @@
 <template>
-    <div id="map">
+  <div id="map">
+    <div id="test">
+
     </div>
+  </div>
+
 </template>
 <script>
+    console.log('UserMap!!');
     import mojs from 'mo-js'
 
     let array = []; // 문제들 배열
     for(let i = 0; i < 10; i++) {
-      const shape = new mojs.Shape
+      const shape = new mojs.Shape;
       array.push(
         new mojs.Shape({
-          parent:       document.getElementById('map'),
+          parent:       document.querySelector('#test'),
           shape:  			'circle',
           left:         (200+Math.random()*250)+'',
           top:          (300+Math.random()*250)+'',
@@ -21,10 +26,10 @@
     }
 
     for(let i = 0; i < 10; i++) {
-      const shape = new mojs.Shape
+      const shape = new mojs.Shape;
       array.push(
         new mojs.Shape({
-          parent:       document.getElementById('map'),
+          parent:       document.querySelector('#map'),
           shape:  			'circle',
           left:         (600+Math.random()*400)+'',
           top:          (200+Math.random()*400)+'',
@@ -38,7 +43,7 @@
       const shape = new mojs.Shape
       array.push(
         new mojs.Shape({
-          parent:       document.getElementById('map'),
+          parent:       document.querySelector('#map'),
           shape:  			'circle',
           left:         (300+Math.random()*200)+'',
           top:          (500+Math.random()*200)+'',
@@ -54,7 +59,7 @@
     // const mouseOver = () => {
     //   console.log(this);
     // }
-    console.log(document.getElementById('map'));
+    // console.log(document.getElementById('map'));
     // document.getElementById('map').childNodes.addEventListener("mouseover", mouseOver);
 
     export default {
