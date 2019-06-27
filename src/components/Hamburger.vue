@@ -33,36 +33,36 @@
         <p class="category">dfs</p>
         <p class="probnum">0000</p>
         <p class="probname">문제이름</p>
-        <img src="../assets/icon-link.png">
+        <a href=""><img src="../assets/icon-link.png"></a>
       </div>
       <div class="recolist">
         <p class="category">dfs</p>
         <p class="probnum">0000</p>
         <p class="probname">문제이름</p>
-        <img src="../assets/icon-link.png">
+        <a href=""><img src="../assets/icon-link.png"></a>
       </div>
       <div class="recolist">
         <p class="category">dfs</p>
         <p class="probnum">0000</p>
         <p class="probname">문제이름</p>
-        <img src="../assets/icon-link.png">
+        <a href=""><img src="../assets/icon-link.png"></a>
       </div><div class="recolist">
       <p class="category">dfs</p>
       <p class="probnum">0000</p>
       <p class="probname">문제이름</p>
-      <img src="../assets/icon-link.png">
+      <a href=""><img src="../assets/icon-link.png"></a>
       </div>
       <div class="recolist">
         <p class="category">dfs</p>
         <p class="probnum">0000</p>
         <p class="probname">문제이름</p>
-        <img src="../assets/icon-link.png">
+        <a href=""><img src="../assets/icon-link.png"></a>
       </div>
       <div class="recolist">
         <p class="category">dfs</p>
         <p class="probnum">0000</p>
         <p class="probname">문제이름</p>
-        <img src="../assets/icon-link.png">
+        <a href=""><img src="../assets/icon-link.png"></a>
       </div>
     </div>
   </div>
@@ -199,6 +199,9 @@
     position : relative;
     bottom : 57px;
     left : 270px;
+  }
+  .recolist a{
+    border : none;
   }
   .recolist .category {
     position : relative;
