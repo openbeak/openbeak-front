@@ -2,53 +2,53 @@
   <div class="container">
     <div class="profile">
       <div class="name">
-        <p>name</p>
+        <p>{{ this.$store.state.user_id }}</p>
         <!--        <button id="show-modal" @click="modalOn">Show Modal</button>-->
+<!--        <button id="show-modal" @click="modalOn">Show Modal</button>-->
 
       </div>
       <div class="problem">
         <div class="line">
           <p>푼 문제 수</p>
-          <p id="probnumber">000 문제</p>
+          <p id="probnumber">{{ this.$store.state.solvedNum }} 문제</p>
         </div>
       </div>
       <div class="ranking">
         <p class="subranking">랭킹</p>
-        <p id="rankingnumber">00위</p>
+        <p id="rankingnumber">{{ this.$store.state.rank }}위</p>
       </div>
     </div>
     <div class="recommend">
       <h1>추천 문제</h1>
       <div class="recolist">
-        <p class="category">dfs</p>
-        <p class="probnum">0000</p>
-        <p class="probname">문제이름</p>
-        <a href=""><img src="../assets/icon-link.png"></a>
+        <p class="category">{{ this.$store.state.problemCategory1 }}</p>
+        <p class="probnum">{{ this.$store.state.problemNum1 }}</p>
+        <p class="probname">{{ this.$store.state.problemName1 }}</p>
+        <a :href="'https://www.acmicpc.net/problem/'+this.$store.state.problemNum1"><img src="../assets/icon-link.png"></a>
       </div>
       <div class="recolist">
-        <p class="category">dfs</p>
-        <p class="probnum">0000</p>
-        <p class="probname">문제이름</p>
-        <a href=""><img src="../assets/icon-link.png"></a>
+        <p class="category">{{ this.$store.state.problemCategory2 }}</p>
+        <p class="probnum">{{ this.$store.state.problemNum2 }}</p>
+        <p class="probname">{{ this.$store.state.problemName2 }}</p>
+        <a :href="'https://www.acmicpc.net/problem/'+this.$store.state.problemNum2"><img src="../assets/icon-link.png"></a>
       </div>
       <div class="recolist">
-        <p class="category">dfs</p>
-        <p class="probnum">0000</p>
-        <p class="probname">문제이름</p>
-        <a href=""><img src="../assets/icon-link.png"></a>
+        <p class="category">{{ this.$store.state.problemCategory3 }}</p>
+        <p class="probnum">{{ this.$store.state.problemNum3 }}</p>
+        <p class="probname">{{ this.$store.state.problemName3 }}</p>
+        <a :href="'https://www.acmicpc.net/problem/'+this.$store.state.problemNum3"><img src="../assets/icon-link.png"></a>
       </div><div class="recolist">
-      <p class="category">dfs</p>
-      <p class="probnum">0000</p>
-      <p class="probname">문제이름</p>
-      <a href=""><img src="../assets/icon-link.png"></a>
-    </div>
-      <div class="recolist">
-        <p class="category">dfs</p>
-        <p class="probnum">0000</p>
-        <p class="probname">문제이름</p>
-        <a href=""><img src="../assets/icon-link.png"></a>
+      <p class="category">{{ this.$store.state.problemCategory4 }}</p>
+      <p class="probnum">{{ this.$store.state.problemNum4 }}</p>
+      <p class="probname">{{ this.$store.state.problemName4 }}</p>
+      <a :href="'https://www.acmicpc.net/problem/'+this.$store.state.problemNum4"><img src="../assets/icon-link.png"></a>
       </div>
-
+      <div class="recolist">
+        <p class="category">{{ this.$store.state.problemCategory5 }}</p>
+        <p class="probnum">{{ this.$store.state.problemNum5 }}</p>
+        <p class="probname">{{ this.$store.state.problemName5 }}</p>
+        <a :href="'https://www.acmicpc.net/problem/'+this.$store.state.problemNum5"><img src="../assets/icon-link.png"></a>
+      </div>
         <v-btn
           color="primary"
           dark
