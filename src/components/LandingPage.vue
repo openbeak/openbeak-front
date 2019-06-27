@@ -1,5 +1,6 @@
 <template>
-  <div id="background">
+
+  <div id="background" v-bind:style="{backgroundColor : black}">
     <p id="title">Algoreader</p>
     <p id="description">그만큼 풀어서 리더가 될 수 있겠어?</p>
     <div class="inputTap">
@@ -33,12 +34,12 @@ export default {
       console.log(this.baekId);
     },
     typing: function(e){
-        console.log(e.target.value)
         let message = e.target.value
         this.valid = message.toLowerCase() == 'algoreader';
     }
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -47,7 +48,7 @@ export default {
     margin : 10px auto 0 auto;
     width: 500px;
     height: 29px;
-    font-family: AppleSDGothicNeo, serif;
+    font-family: AppleSDGothicNeo-Bold, serif;
     font-size: 24px;
     font-weight: bold;
     font-style: normal;
@@ -61,7 +62,7 @@ export default {
     padding-top : 125px;
     width: 295px;
     height: 72px;
-    font-family: AppleSDGothicNeo, serif;
+    font-family: AppleSDGothicNeo-Bold, serif;
     font-size: 60px;
     font-weight: bold;
     font-style: normal;
@@ -187,7 +188,7 @@ export default {
     padding-bottom : 16px;
     /*width: 333px;*/
     /*height: 24px;*/
-    font-family: AppleSDGothicNeo;
+    font-family: AppleSDGothicNeo, serif;
     font-size: 14px;
     font-weight: 300;
     font-style: normal;
@@ -211,4 +212,6 @@ li {
 a {
   color: #42b983;
 }
+  @import url("https://www.findmyfont.com/fonts/font-preview?fset=Mac-OS-Fonts&ffam=&fid=e69f76c16ba46d8e1f5b09296e8a24bb&width=800&fsize=48&text=The%20quick%20brown%20fox%20jumps%20over%20the%20lazy%20dog&wrap=2?family=AppleSDGothicNeo-Bold");
 </style>
+
