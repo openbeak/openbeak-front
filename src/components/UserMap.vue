@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="sideBar"></div>
+    <Hamburger class="sideBar" />
     <div>
       <div id="map"></div>
     </div>
@@ -94,7 +94,7 @@
     border: 1px solid red;
   }
   .sideBar {
-    width: 180px;
+    width: 350px;
     height: 87vh;
     background: gray;
     float: right;
