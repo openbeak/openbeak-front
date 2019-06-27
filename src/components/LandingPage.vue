@@ -15,7 +15,6 @@
       <p v-if="valid" class="idInput2">[OPENHACK@openBeak~] $ 
         <input @keyup.enter="sendID" v-model="baekId" v-if="valid" class="searchBar">
       </p>
-      <!-- <button @click="sendID" id="submit" v-if="valid">입력</button> -->
     </div>
   </div>
   
