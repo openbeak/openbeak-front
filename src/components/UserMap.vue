@@ -4,11 +4,11 @@
     <Modal/>
     <div>
       <div id="map">
-        <div class="half-circle-spinner">
+        <!-- <div class="half-circle-spinner">
           <h1 class="circleTitle">Please wait a moment.</h1>
           <div class="circle circle-1"></div>
           <div class="circle circle-2"></div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
