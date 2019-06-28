@@ -16,14 +16,19 @@
 
     export default {
       name: "UserMap",
+      data() {
+        return {
+          flag:true
+        }
+      },
       mounted() {
-        // CategoryMap = categorize(UserData.soling_problems);
-        // mapHandling(CategoryMap);
-        // console.log(CategoryArray);
-        // bubble(infoAboutMap, CategoryArray);
+        bubble(infoAboutMap);
       },
       components: {Modal, Hamburger},
       created() {
+        setTimeout(() => {
+          this.flag=false;
+        }, 6000)
         console.log("http.get method");
         this.$http.get(`http://ec2-18-191-120-181.us-east-2.compute.amazonaws.com:8080/api/solvedProblems/list/${this.$store.state.user_id}`)
           .then(res => {
@@ -36,45 +41,67 @@
             mapHandling(CategoryMap);
             console.log(CategoryArray);
             bubble(infoAboutMap, CategoryArray);
-          })
+            this.$store.state.rank = res.data.ranking;
+            this.$store.state.solvedNum = res.data.solving_count;
+            console.log(res.data.top5_list);
+            console.log(res.data.top5_list[0]);
+            console.log(res.data.top5_list[0]["problemNum"]);
+            this.$store.state.problemNum1 = res.data.top5_list[0]["problemNum"];
+            this.$store.state.problemName1 = res.data.top5_list[0]["problemName"];
+            this.$store.state.problemCategory1 = res.data.top5_list[0]["category"];
+            this.$store.state.problemNum2 = res.data.top5_list[1]["problemNum"];
+            this.$store.state.problemName2 = res.data.top5_list[1]["problemName"];
+            this.$store.state.problemCategory2 = res.data.top5_list[1]["category"];
+            this.$store.state.problemNum3 = res.data.top5_list[2]["problemNum"];
+            this.$store.state.problemName3 = res.data.top5_list[2]["problemName"];
+            this.$store.state.problemCategory3 = res.data.top5_list[2]["category"];
+            this.$store.state.problemNum4 = res.data.top5_list[3]["problemNum"];
+            this.$store.state.problemName4 = res.data.top5_list[3]["problemName"];
+            this.$store.state.problemCategory4 = res.data.top5_list[3]["category"];
+            this.$store.state.problemNum5 = res.data.top5_list[4]["problemNum"];
+            this.$store.state.problemName5 = res.data.top5_list[4]["problemName"];
+            this.$store.state.problemCategory5 = res.data.top5_list[4]["category"];
+          });
+      },
+      method: {
       }
     }
     let UserData = [];
     let infoAboutMap = [
       {
         ProbNum: [30,20],
-        left: [300,500],
-        top: [150,500],
-        rgbaVal: [255,242,38],
-        radiusVal: [15,20]
+        left: [300,400],
+        top: [150,400],
+        rgbaVal: [255,255,102],
+        radiusVal: [20,10]
       },
       {
         ProbNum: [15,10],
-        left: [1000,350],
-        top: [500,350],
+        left: [900,250],
+        top: [400,250],
         rgbaVal: [252,81,91],
-        radiusVal: [10,15]
+        radiusVal: [15,15]
       },
       {
         ProbNum: [15,10],
-        left: [800,350],
-        top: [150,350],
+        left: [800,250],
+        top: [150,250],
         rgbaVal: [96,239,223],
-        radiusVal: [10,15]
+        radiusVal: [15,15]
       },
       {
         ProbNum: [7,6],
-        left: [1100,250],
-        top: [200,250],
+        left: [1000,150],
+        top: [200,150],
         rgbaVal: [186,3,237],
-        radiusVal: [10,10]
+        radiusVal: [10,5]
       },
       {
         ProbNum: [7,6],
-        left: [100,250],
-        top: [600,250],
+        left: [100,150],
+        top: [400,150],
         rgbaVal: [225,120,189],
-        radiusVal: [10,10]
+        radiusVal: [10,5]
       },
       {
         ProbNum: [7,6],
@@ -86,14 +113,14 @@
       {
         ProbNum: [3,4],
         left: [200,100],
-        top: [600,100],
+        top: [300,100],
         rgbaVal: [250,1,139],
         radiusVal: [5,5]
       },
       {
         ProbNum: [3,4],
-        left: [950,100],
-        top: [500,100],
+        left: [500,100],
+        top: [550,100],
         rgbaVal: [255,132,12],
         radiusVal: [5,5]
       },
@@ -107,107 +134,34 @@
       {
         ProbNum: [3,4],
         left: [100,100],
-        top: [600,200],
+        top: [600,100],
         rgbaVal: [0,179,255],
         radiusVal: [5,5]
       }
     ];
-    let CategoryArray = [];
-    let KVnumName = new Map();
-    let KVnumCate = new Map();
-    let KVnumRate = new Map();
     const opacity = [1,0.6,0.3];
-
-    const categorize = (arr) => {
-      for(let i = 0; i < arr.length; i++) {
-        const category = arr[i]['category'];
-        if(CategoryMap.has(category)) {
-            let tmp = CategoryMap.get(category);
-            tmp++;
-            CategoryMap.set(category, tmp);
-        } else {
-          CategoryMap.set(category, 1);
-        }
-      }
-    }
-
-    const mapHandling = (map) => {
-      for(let i = 0; i < map.size; i++) {
-          let max = 0;
-          let maxKey = '';
-        for(let [key, value] of map) {
-          if(value >= max) {
-            max = value;
-            maxKey = key;
-          }
-        }
-        CategoryArray.push({
-          'category': maxKey,
-          'num': max
-        });
-        map.delete(maxKey);
-        if(CategoryArray.length === 9 && map.length > 0) {
-          let count = 0;
-          for(let [key, value] of map) {
-            count += value;
-          }
-          CategoryArray.push({
-            'category': '기타',
-            'num': count
-          });
-        }
-      }
-    }
-
-    const makeMaps = (arr) => {
-      for(let i = 0; i < arr.length; i++) {
-        KVnumName.set(arr[i].problemNum, arr[i].problemName);
-        KVnumCate.set(arr[i].problemNum, arr[i].category);
-        KVnumRate.set(arr[i].problemNum, arr[i].answerRate);
-      }
-    }
-
-
-    let bubble = (arr, cateArr) => {
+    let bubble = (arr) => {
         let array = []; // 문제들 배열
-        for (let i = 0; i < Math.min(arr.length, cateArr.length); i++) {
-            let word = document.createElement('div');
-            console.log(word);
-            document.getElementById('map').appendChild(word);
-            word.innerHTML = cateArr[i].category;
-            word.style.left = arr[i].left[0] + Math.random() * arr[i].left[1] + 'px';
-            word.style.top = arr[i].top[0] + Math.random() * arr[i].top[1] + 'px';
-            word.style.fontSize = 3*cateArr[i].num+'px';
-            word.style.position = 'relative';
-            word.style.color = 'rgb('+arr[i].rgbaVal[0]+','+arr[i].rgbaVal[1]+','+arr[i].rgbaVal[2]+')';
-            document.getElementById('map').appendChild(word);
-              for(let [key, value] of KVnumCate) {
-                if (value === cateArr[i].category) {
-                  const shape = new mojs.Shape({
-                    parent: document.getElementById('map'),
-                    shape: 'circle',
-                    left: (arr[i].left[0] + Math.random() * arr[i].left[1]) + '',
-                    top: (arr[i].top[0] + Math.random() * arr[i].top[1]) + '',
-                    fill: "rgba(" + arr[i].rgbaVal[0] + "," + arr[i].rgbaVal[1] + "," + arr[i].rgbaVal[2] + "," + opacity[Math.floor(Math.random() * 3)] + ")",
-                    radius: Math.random() * arr[i].radiusVal[1] + arr[i].radiusVal[0],
-                  });
-                  const problem = {
-                    'num': key,
-                    'name': KVnumName.get(key),
-                    'category': cateArr.category,
-                    'rate': KVnumRate.get(key)
-                  };
-                  const Obj = {
-                    shape, problem
-                  };
-                  array.push(Obj);
-            }
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr[i].ProbNum[0] + Math.random() * arr[i].ProbNum[1]; j++) {
+            array.push(
+              new mojs.Shape({
+                parent: document.getElementById('map'),
+                shape: 'circle',
+                left: (arr[i].left[0] + Math.random() * arr[i].left[1]) + '',
+                top: (arr[i].top[0] + Math.random() * arr[i].top[1]) + '',
+                fill: "rgba(" + arr[i].rgbaVal[0] + "," + arr[i].rgbaVal[1] + "," + arr[i].rgbaVal[2] + "," + opacity[Math.floor(Math.random() * 3)] + ")",
+                radius: Math.random() * arr[i].radiusVal[1] + arr[i].radiusVal[0],
+              })
+            );
           }
         }
 
 
         console.log(array);
-        array.forEach(obj => obj.shape.play());
+        array.forEach(shape => {
+          const shapeShow = shape.play();
+        });
 
         const elList = document.querySelectorAll('#map div');
         console.log(elList);
@@ -215,14 +169,14 @@
         let mutex = -1; // 바로 직전 확대된 문제 index
         let mutexR = 0;
         for (const item of elList) {
-          console.log("@", item);
           item.addEventListener("mouseover", function (e) {
             const event = e || window.event;
             const target = event.target || event.srcElement;
             index = indexLst(item); // 인덱스 변경
             if (mutex !== -1) {
-              console.log(array[mutex]);
-              array[mutex].shape.then({
+
+              console.log(mutexR);
+              array[mutex].then({
                 radius: mutexR
               });
 
@@ -232,13 +186,12 @@
             mutex = index;
             let tmp = item.style.width;
             mutexR = tmp.substring(0, tmp.length - 2) / 2.0;
-            array[index].shape.then({
+            array[index].then({
               radius: 50
             });
 
             target.setAttribute('rx', 50);
             target.setAttribute('ry', 50);
-            //item.innerHTML = array[index].problem['num']+'번';
 
           });
         }
@@ -260,7 +213,7 @@
   #map {
     background-color: #1c1d20;
     width: 100vw;
-    height: 1080px;
+    height: 87vh;
   }
 
   .sideBar {

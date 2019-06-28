@@ -15,9 +15,9 @@
       <p v-if="valid" class="idInput2">[OPENHACK@openBeak~] $ 
         <input @keyup.enter="sendID" v-model="baekId" v-if="valid" class="searchBar">
       </p>
-      <!-- <button @click="sendID" id="submit" v-if="valid">입력</button> -->
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -92,16 +92,6 @@ export default {
         //console.log(e.target.value)
         let message = e.target.value;
         this.valid = message.toLowerCase() == 'algoreader';
-        // element.dispatchEvent(new KeyboardEvent('keypress',{'key':'Tab'}));
-        // KeyEvent.simulate(0, 9);
-        // KeyboardEvent.simulate(0, 9);
-        // jQuery.event.trigger({type:'keydown', which:9});
-
-        // document.addEventListener('keydown', function(event){
-          // console.log(event.which);
-        // });
-        // var evt = new KeyboardEvent('keydown', {'keyCode':9, 'which':9});
-        // document.dispatchEvent(evt);
     }
   }
 }
