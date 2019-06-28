@@ -5,6 +5,7 @@
     <div>
       <div id="map">
         <div class="half-circle-spinner">
+          <h1 class="circleTitle">Please wait a moment.</h1>
           <div class="circle circle-1"></div>
           <div class="circle circle-2"></div>
         </div>
@@ -21,6 +22,7 @@
       name: "UserMap",
       data() {
         return {
+          intervalid1:''
         }
       },
       mounted() {
@@ -53,6 +55,8 @@
             this.$store.state.problemName5 = res.data.top5_list[4]["problemName"];
             this.$store.state.problemCategory5 = res.data.top5_list[4]["category"];
           });
+      },
+      method: {
       }
     }
 
@@ -214,15 +218,15 @@
     float: right;
   }
 
-  .half-circle-spinner, .half-circle-spinner * {
+.half-circle-spinner, .half-circle-spinner * {
       box-sizing: border-box;
-      top: 320px;
-      left: 370px;
+      top: 370px;
+      left: 375px;
     }
 
     .half-circle-spinner {
-      width: 150px;
-      height: 150px;
+      width: 60px;
+      height: 60px;
       border-radius: 100%;
       position: relative;
     }
@@ -254,5 +258,11 @@
       100%{
         transform: rotate(360deg);
       }
+    }
+    .circleTitle {
+      color: white;
+      width: 50%;
+      padding-top:300px;
+      padding-left:350px;
     }
 </style>
