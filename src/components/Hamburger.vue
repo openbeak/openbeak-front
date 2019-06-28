@@ -37,11 +37,13 @@
         <p class="probnum">{{ this.$store.state.problemNum3 }}</p>
         <p class="probname">{{ this.$store.state.problemName3 }}</p>
         <a :href="'https://www.acmicpc.net/problem/'+this.$store.state.problemNum3"><img src="../assets/icon-link.png"></a>
-      </div><div class="recolist">
-      <p class="category">{{ this.$store.state.problemCategory4 }}</p>
-      <p class="probnum">{{ this.$store.state.problemNum4 }}</p>
-      <p class="probname">{{ this.$store.state.problemName4 }}</p>
-      <a :href="'https://www.acmicpc.net/problem/'+this.$store.state.problemNum4"><img src="../assets/icon-link.png"></a>
+      </div>
+      <div class="recolist">
+        <p class="category">{{ this.$store.state.problemCategory4 }}</p>
+        <p class="probnum">{{ this.$store.state.problemNum4 }}</p>
+        <p class="probname">{{ this.$store.state.problemName4 }}</p>
+        <a :href="'https://www.acmicpc.net/problem/'+this.$store.state.problemNum4">
+        <img src="../assets/icon-link.png"></a>
       </div>
       <div class="recolist">
         <p class="category">{{ this.$store.state.problemCategory5 }}</p>
@@ -219,11 +221,18 @@
     claer : both;
   }
   .probname{
+    white-space : nowrap;
+    width : 250px;
     margin-top : 8px;
     border : none;
     font-size : 24px;
     text-align : left;
     padding-left : 14px;
+    overflow : hidden;
+    overflow-x : scroll;
+  }
+  p::-webkit-scrollbar {
+    display: none;
   }
 
 </style>
