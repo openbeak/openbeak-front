@@ -101,7 +101,7 @@
     },
     {
       ProbNum: [7,6],
-      left: [100,250],
+      left: [400,250],
       top: [600,250],
       rgbaVal: [225,120,189],
       radiusVal: [10,10]
@@ -124,7 +124,7 @@
       ProbNum: [3,4],
       left: [950,100],
       top: [500,100],
-      rgbaVal: [255,132,12],
+      rgbaVal: [255,177,0],
       radiusVal: [5,5]
     },
     {
@@ -137,7 +137,7 @@
     {
       ProbNum: [3,4],
       left: [100,100],
-      top: [600,200],
+      top: [200,200],
       rgbaVal: [0,179,255],
       radiusVal: [5,5]
     }
@@ -206,8 +206,15 @@
       document.getElementById('map').appendChild(word);
       word.innerHTML = cateArr[i].category;
       word.style.left = arr[i].left[0] + Math.random() * arr[i].left[1] + 'px';
-      word.style.top = arr[i].top[0] + Math.random() * arr[i].top[1] + 'px';
-      word.style.fontSize = 3*cateArr[i].num+'px';
+      word.style.top = arr[i].top[0]/2 + Math.random() * arr[i].top[1]/2 + 'px';
+      console.log(cateArr[i].num);
+      if(cateArr[i].num <= 7) {
+        word.style.fontSize = 8*cateArr[i].num+'px';
+      } else if(cateArr[i].num <= 15) {
+        word.style.fontSize = 4*cateArr[i].num+'px';
+      } else {
+        word.style.fontSize = 2*cateArr[i].num+'px';
+      }
       word.style.position = 'relative';
       word.style.color = 'rgb('+arr[i].rgbaVal[0]+','+arr[i].rgbaVal[1]+','+arr[i].rgbaVal[2]+')';
       document.getElementById('map').appendChild(word);
