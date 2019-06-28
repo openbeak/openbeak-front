@@ -4,11 +4,11 @@
     <Modal/>
     <div>
       <div id="map">
-        <!-- <div class="half-circle-spinner">
+        <div v-if="flag" class="half-circle-spinner">
           <h1 class="circleTitle">Please wait a moment.</h1>
           <div class="circle circle-1"></div>
           <div class="circle circle-2"></div>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
       name: "UserMap",
       data() {
         return {
-          intervalid1:''
+          flag:true
         }
       },
       mounted() {
@@ -30,6 +30,9 @@
       },
       components: {Modal, Hamburger},
       created() {
+        setTimeout(() => {
+          this.flag=false;
+        }, 6000)
         console.log("http.get method");
         this.$http.get(`http://ec2-18-191-120-181.us-east-2.compute.amazonaws.com:8080/api/solvedProblems/list/${this.$store.state.user_id}`)
           .then(res => {
@@ -217,11 +220,18 @@
     background: gray;
     float: right;
   }
+    .circleTitle {
+      font-size: 50px;
+      color: white;
+      padding-top:100px;
+      padding-left:520px;
+    }
 
 .half-circle-spinner, .half-circle-spinner * {
       box-sizing: border-box;
-      top: 370px;
-      left: 375px;
+      top: 200px;
+      left: 300px;
+      
     }
 
     .half-circle-spinner {
@@ -258,11 +268,5 @@
       100%{
         transform: rotate(360deg);
       }
-    }
-    .circleTitle {
-      color: white;
-      width: 50%;
-      padding-top:300px;
-      padding-left:350px;
     }
 </style>
