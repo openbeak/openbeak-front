@@ -43,38 +43,38 @@
     let infoAboutMap = [
       {
         ProbNum: [30,20],
-        left: [300,400],
-        top: [150,400],
-        rgbaVal: [255,255,102],
-        radiusVal: [20,10]
+        left: [300,500],
+        top: [150,500],
+        rgbaVal: [255,242,38],
+        radiusVal: [15,20]
       },
       {
         ProbNum: [15,10],
-        left: [900,250],
-        top: [400,250],
+        left: [1000,350],
+        top: [500,350],
         rgbaVal: [252,81,91],
-        radiusVal: [15,15]
+        radiusVal: [10,15]
       },
       {
         ProbNum: [15,10],
-        left: [800,250],
-        top: [150,250],
+        left: [800,350],
+        top: [150,350],
         rgbaVal: [96,239,223],
-        radiusVal: [15,15]
+        radiusVal: [10,15]
       },
       {
         ProbNum: [7,6],
-        left: [1000,150],
-        top: [200,150],
+        left: [1100,250],
+        top: [200,250],
         rgbaVal: [186,3,237],
-        radiusVal: [10,5]
+        radiusVal: [10,10]
       },
       {
         ProbNum: [7,6],
-        left: [100,150],
-        top: [400,150],
+        left: [100,250],
+        top: [600,250],
         rgbaVal: [225,120,189],
-        radiusVal: [10,5]
+        radiusVal: [10,10]
       },
       {
         ProbNum: [7,6],
@@ -86,14 +86,14 @@
       {
         ProbNum: [3,4],
         left: [200,100],
-        top: [300,100],
+        top: [600,100],
         rgbaVal: [250,1,139],
         radiusVal: [5,5]
       },
       {
         ProbNum: [3,4],
-        left: [500,100],
-        top: [550,100],
+        left: [950,100],
+        top: [500,100],
         rgbaVal: [255,132,12],
         radiusVal: [5,5]
       },
@@ -107,7 +107,7 @@
       {
         ProbNum: [3,4],
         left: [100,100],
-        top: [600,100],
+        top: [600,200],
         rgbaVal: [0,179,255],
         radiusVal: [5,5]
       }
@@ -126,7 +126,7 @@
             tmp++;
             CategoryMap.set(category, tmp);
         } else {
-              CategoryMap.set(category, 1);
+          CategoryMap.set(category, 1);
         }
       }
     }
@@ -145,7 +145,6 @@
           'category': maxKey,
           'num': max
         });
-        console.log(CategoryArray);
         map.delete(maxKey);
         if(CategoryArray.length === 9 && map.length > 0) {
           let count = 0;
@@ -171,11 +170,20 @@
 
     let bubble = (arr, cateArr) => {
         let array = []; // 문제들 배열
-        for (let i = 0; i < arr.length; i++) {
-          for (let j = 0; j < cateArr[i].num; j++) {
-            for(let [key, value] of KVnumCate) {
-              if(value === cateArr[i].category) {
-                const shape = new mojs.Shape({
+        for (let i = 0; i < Math.min(arr.length, cateArr.length); i++) {
+            let word = document.createElement('div');
+            console.log(word);
+            document.getElementById('map').appendChild(word);
+            word.innerHTML = cateArr[i].category;
+            word.style.left = arr[i].left[0] + Math.random() * arr[i].left[1] + 'px';
+            word.style.top = arr[i].top[0] + Math.random() * arr[i].top[1] + 'px';
+            word.style.fontSize = 3*cateArr[i].num+'px';
+            word.style.position = 'relative';
+            word.style.color = 'rgb('+arr[i].rgbaVal[0]+','+arr[i].rgbaVal[1]+','+arr[i].rgbaVal[2]+')';
+            document.getElementById('map').appendChild(word);
+              for(let [key, value] of KVnumCate) {
+                if (value === cateArr[i].category) {
+                  const shape = new mojs.Shape({
                     parent: document.getElementById('map'),
                     shape: 'circle',
                     left: (arr[i].left[0] + Math.random() * arr[i].left[1]) + '',
@@ -183,17 +191,16 @@
                     fill: "rgba(" + arr[i].rgbaVal[0] + "," + arr[i].rgbaVal[1] + "," + arr[i].rgbaVal[2] + "," + opacity[Math.floor(Math.random() * 3)] + ")",
                     radius: Math.random() * arr[i].radiusVal[1] + arr[i].radiusVal[0],
                   });
-                const problem = {
+                  const problem = {
                     'num': key,
                     'name': KVnumName.get(key),
                     'category': cateArr.category,
                     'rate': KVnumRate.get(key)
                   };
-                const Obj = {
-                  shape, problem
-                };
-                array.push(Obj);
-              }
+                  const Obj = {
+                    shape, problem
+                  };
+                  array.push(Obj);
             }
           }
         }
@@ -208,14 +215,14 @@
         let mutex = -1; // 바로 직전 확대된 문제 index
         let mutexR = 0;
         for (const item of elList) {
+          console.log("@", item);
           item.addEventListener("mouseover", function (e) {
             const event = e || window.event;
             const target = event.target || event.srcElement;
             index = indexLst(item); // 인덱스 변경
             if (mutex !== -1) {
-
-              console.log(mutexR);
-              array[mutex].then({
+              console.log(array[mutex]);
+              array[mutex].shape.then({
                 radius: mutexR
               });
 
@@ -225,12 +232,13 @@
             mutex = index;
             let tmp = item.style.width;
             mutexR = tmp.substring(0, tmp.length - 2) / 2.0;
-            array[index].then({
+            array[index].shape.then({
               radius: 50
             });
 
             target.setAttribute('rx', 50);
             target.setAttribute('ry', 50);
+            //item.innerHTML = array[index].problem['num']+'번';
 
           });
         }
